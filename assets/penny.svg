@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Penny the pig">
+  <g>
+    <path d="M154 121c14-5 22 0 22 10 0 8-7 13-14 9-4-2-4-6 0-8 4-2 2-6-3-4-5 2-8-2-5-7z" fill="#e85f5f"/>
+    <path d="M61 143c0-6 5-9 12-9s11 4 11 10v13c0 7-4 11-12 11s-12-4-12-11z" fill="#e85f5f"/>
+    <path d="M116 144c0-6 4-10 11-10s12 3 12 9l1 14c0 7-4 11-12 11s-12-4-12-11z" fill="#e85f5f"/>
+    <path d="M57 65c-10-7-14-18-10-30 1-4 5-5 8-2 9 6 13 15 12 26-1 5-5 8-10 6z" fill="#e85f5f"/>
+    <path d="M143 65c10-7 14-18 10-30-1-4-5-5-8-2-9 6-13 15-12 26 1 5 5 8 10 6z" fill="#e85f5f"/>
+    <ellipse cx="100" cy="103" rx="58" ry="57" fill="#ff7a7a"/>
+    <ellipse cx="100" cy="112" rx="30" ry="22" fill="#ffc9c6"/>
+    <circle cx="79" cy="88" r="7" fill="#2b1620"/>
+    <circle cx="121" cy="88" r="7" fill="#2b1620"/>
+    <circle cx="89" cy="111" r="5" fill="#2b1620"/>
+    <circle cx="111" cy="111" r="5" fill="#2b1620"/>
+  </g>
+</svg>
