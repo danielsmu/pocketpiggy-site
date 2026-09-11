@@ -92,8 +92,8 @@ def make(path, size, screen, kicker, headline, accent_name="purple", dark=False,
     canvas = panel(size, dark, accent)
     d = ImageDraw.Draw(canvas)
 
-    head_pt = head_pt or int(W * 0.082)
-    kick_pt = kick_pt or int(head_pt * 0.42)
+    head_pt = head_pt or int(W * 0.108)
+    kick_pt = kick_pt or int(head_pt * 0.34)
     radius = radius if radius is not None else int(W * 0.045)
     bezel = bezel if bezel is not None else max(6, int(W * 0.008))
 
@@ -101,10 +101,10 @@ def make(path, size, screen, kicker, headline, accent_name="purple", dark=False,
     head_col = CREAM if dark else INK
     kick_col = accent if not dark else tuple(min(255, c + 45) for c in accent)
 
-    y = int(H * 0.062)
+    y = int(H * 0.045)
     kw = d.textlength(kicker, font=kf)
     d.text(((W - kw) / 2, y), kicker.upper(), font=kf, fill=kick_col)
-    y += int(kick_pt * 1.7)
+    y += int(kick_pt * 1.55)
 
     for line in wrap(d, headline, hf, W * 0.88):
         lw = d.textlength(line, font=hf)
@@ -119,7 +119,7 @@ def make(path, size, screen, kicker, headline, accent_name="purple", dark=False,
     sh = int(sw * shot.size[1] / shot.size[0])
     shot = shot.resize((sw, sh), Image.LANCZOS)
     x = (W - sw) // 2
-    yy = max(y + int(H * 0.03), int(H * device_top))
+    yy = max(y + int(H * 0.028), int(H * device_top))
 
     # bezel + drop shadow, device bleeding off the bottom of the panel
     sha = Image.new("RGBA", size, (0, 0, 0, 0))
@@ -162,25 +162,25 @@ if __name__ == "__main__":
     print("iPhone 6.9 inch")
     for name, src, kick, head, accent, dark in PHONE:
         make(f"{OUT}/iPhone-6.9/{name}", IPHONE, src, kick, head, accent, dark,
-             screen_w=0.76, device_top=0.30)
+             screen_w=0.84, device_top=0.21)
 
     print("iPad 13 inch")
     for name, src, kick, head, accent, dark in IPAD_SET:
         make(f"{OUT}/iPad-13/{name}", IPAD, src, kick, head, accent, dark,
-             head_pt=132, kick_pt=52, screen_w=0.70, device_top=0.26, radius=36)
+             head_pt=168, kick_pt=56, screen_w=0.78, device_top=0.20, radius=36)
 
     print("Apple TV")
     for name, src, kick, head, accent, dark in [
         ("01-board.jpg", "tv.png", "apple tv", "The chart on your wall", "purple", True),
         ("02-week.jpg", "tv.png", "the whole week", "Everyone sees the week", "blue", False)]:
         make(f"{OUT}/AppleTV/{name}", TV, src, kick, head, accent, dark,
-             head_pt=86, kick_pt=34, screen_w=0.62, device_top=0.30, radius=18, bezel=8)
+             head_pt=104, kick_pt=38, screen_w=0.66, device_top=0.26, radius=18, bezel=8)
 
     print("Apple Watch")
     for name, kick, head, accent, dark in [
         ("01-today.jpg", "on your wrist", "Today's chores", "purple", True),
         ("02-payday.jpg", "pay day", "Counts down with you", "gold", False)]:
         make(f"{OUT}/AppleWatch/{name}", WATCH, "watch.png", kick, head, accent, dark,
-             head_pt=34, kick_pt=15, screen_w=0.56, device_top=0.34, radius=12, bezel=3)
+             head_pt=42, kick_pt=17, screen_w=0.62, device_top=0.27, radius=12, bezel=3)
 
     print("\nWritten to", OUT)
