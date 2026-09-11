@@ -177,10 +177,10 @@ if __name__ == "__main__":
              head_pt=104, kick_pt=38, screen_w=0.66, device_top=0.26, radius=18, bezel=8)
 
     print("Apple Watch")
-    for name, kick, head, accent, dark in [
-        ("01-today.jpg", "on your wrist", "Today's chores", "purple", True),
-        ("02-payday.jpg", "pay day", "Counts down with you", "gold", False)]:
-        make(f"{OUT}/AppleWatch/{name}", WATCH, "watch.png", kick, head, accent, dark,
+    for name, src, kick, head, accent, dark in [
+        ("01-today.jpg", "watch.png", "on your wrist", "Today's chores", "purple", True),
+        ("02-kid.jpg", "watchkid.png", "one kid", "How their week is going", "coral", False)]:
+        make(f"{OUT}/AppleWatch/{name}", WATCH, src, kick, head, accent, dark,
              head_pt=42, kick_pt=17, screen_w=0.62, device_top=0.27, radius=12, bezel=3)
 
     print("\nWritten to", OUT)
