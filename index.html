@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pocket Piggy — Chores &amp; Money for Kids</title>
+<title>Pocket Piggy: Chores &amp; Money for Kids</title>
 <meta name="description" content="A chore chart and allowance app for families. Kids check off chores, money adds up, and Pay Day lands every week. iPhone, iPad, Apple Watch and Apple TV.">
-<meta property="og:title" content="Pocket Piggy — Chores &amp; Money for Kids">
+<meta property="og:title" content="Pocket Piggy: Chores &amp; Money for Kids">
 <meta property="og:description" content="Chores that actually pay. A chore chart and allowance app the whole family can see.">
 <meta property="og:type" content="website">
 <link rel="icon" href="assets/penny.svg">
@@ -27,9 +27,28 @@
 
 <div class="wrap">
   <div class="hero">
-    <img class="penny" src="assets/penny.svg" width="120" height="120" alt="Penny, the Pocket Piggy mascot">
+<div class="penny-stage" id="pennyStage">
+      <svg class="penny" viewBox="0 0 200 200" role="img" aria-label="Penny the pig">
+        <g class="penny-body">
+          <path d="M154 121c14-5 22 0 22 10 0 8-7 13-14 9-4-2-4-6 0-8 4-2 2-6-3-4-5 2-8-2-5-7z" fill="#e85f5f"/>
+          <path d="M61 143c0-6 5-9 12-9s11 4 11 10v13c0 7-4 11-12 11s-12-4-12-11z" fill="#e85f5f"/>
+          <path d="M116 144c0-6 4-10 11-10s12 3 12 9l1 14c0 7-4 11-12 11s-12-4-12-11z" fill="#e85f5f"/>
+          <path class="ear-l" d="M57 65c-10-7-14-18-10-30 1-4 5-5 8-2 9 6 13 15 12 26-1 5-5 8-10 6z" fill="#e85f5f"/>
+          <path class="ear-r" d="M143 65c10-7 14-18 10-30-1-4-5-5-8-2-9 6-13 15-12 26 1 5 5 8 10 6z" fill="#e85f5f"/>
+          <ellipse cx="100" cy="103" rx="58" ry="57" fill="#ff7a7a"/>
+          <ellipse cx="100" cy="112" rx="30" ry="22" fill="#ffc9c6"/>
+          <g class="eyes">
+            <circle cx="79" cy="88" r="7" fill="#2b1620"/>
+            <circle cx="121" cy="88" r="7" fill="#2b1620"/>
+          </g>
+          <circle cx="89" cy="111" r="5" fill="#2b1620"/>
+          <circle cx="111" cy="111" r="5" fill="#2b1620"/>
+        </g>
+      </svg>
+      <div class="penny-bubble" id="pennyBubble" role="status" aria-live="polite"></div>
+    </div>
     <h1>Chores that actually pay.</h1>
-    <p class="lede">Kids check off what they did. You approve it. Money moves on Pay Day — no cash, no spreadsheets, no arguing about who was supposed to take out the trash.</p>
+    <p class="lede">Kids check off what they did. You approve it. Money moves on Pay Day. No cash, no spreadsheets, no arguing about who was supposed to take out the trash.</p>
     <a class="cta" href="#" data-appstore>Download on the App Store</a>
     <p class="fineprint">Free for one kid · one-time purchase for the whole family · no subscription</p>
   </div>
@@ -62,7 +81,7 @@
       <div class="card">
         <div class="emoji">🧒</div>
         <h3>Kid Mode</h3>
-        <p>Hand them the phone, or give them their own device. They see only their chores and their money — with everything read aloud for kids who aren't reading yet.</p>
+        <p>Hand them the phone, or give them their own device. They see only their chores and their money, with everything read aloud for kids who aren't reading yet.</p>
       </div>
       <div class="card">
         <div class="emoji">📺</div>
@@ -88,18 +107,18 @@
     <div class="shot-row">
       <figure>
         <img src="assets/ipad-board.jpg" alt="Pocket Piggy on iPad with the family board on the left and a child's money detail on the right" loading="lazy">
-        <figcaption><strong>iPad</strong> — the board and a kid's money side by side.</figcaption>
+        <figcaption><strong>iPad</strong>: the board and a kid's money side by side.</figcaption>
       </figure>
       <figure>
         <img src="assets/tv-board.jpg" alt="Pocket Piggy on Apple TV showing the family chore chart for the week" loading="lazy">
-        <figcaption><strong>Apple TV</strong> — the chore chart on the living room wall.</figcaption>
+        <figcaption><strong>Apple TV</strong>: the chore chart on the living room wall.</figcaption>
       </figure>
     </div>
 
     <div class="shot-row">
       <figure class="narrow-figure">
         <img src="assets/phone-money.jpg" alt="A child's money screen showing spend, save and give balances and a savings goal" loading="lazy">
-        <figcaption><strong>Spend, Save, Give</strong> — every dollar split automatically, with a goal to work toward.</figcaption>
+        <figcaption><strong>Spend, Save, Give</strong>: every dollar split automatically, with a goal to work toward.</figcaption>
       </figure>
     </div>
   </div>
@@ -109,9 +128,9 @@
   <div class="wrap">
     <p class="eyebrow">Three buckets, one lesson</p>
     <div class="buckets">
-      <div class="bucket spend">Spend — theirs to enjoy</div>
-      <div class="bucket save">Save — toward a goal</div>
-      <div class="bucket give">Give — for someone else</div>
+      <div class="bucket spend">Spend, theirs to enjoy</div>
+      <div class="bucket save">Save, toward a goal</div>
+      <div class="bucket give">Give, for someone else</div>
     </div>
   </div>
 </section>
@@ -172,7 +191,7 @@
 
     <details>
       <summary>Do you have to pay kids money for chores?</summary>
-      <p>Not at all. Set a chore's amount to zero and it's simply something that needs doing — useful for grown-ups' chores, or for families who'd rather not tie money to every task. You can also pay one flat amount for the week instead of per chore.</p>
+      <p>Not at all. Set a chore's amount to zero and it's simply something that needs doing. That suits grown-ups' chores, or for families who'd rather not tie money to every task. You can also pay one flat amount for the week instead of per chore.</p>
     </details>
 
     <details>
@@ -194,5 +213,58 @@
   </div>
 </footer>
 
+
+<script>
+(function () {
+  var stage = document.getElementById('pennyStage');
+  var bubble = document.getElementById('pennyBubble');
+  if (!stage || !bubble) return;
+
+  var lines = [
+    "Oink.",
+    "I'm a pig, not a piggy bank. Okay, both.",
+    "Snort.",
+    "Money doesn't grow on trees. It grows on chores.",
+    "Do you have any apples?",
+    "I'm not hogging the savings. I'm just holding them.",
+    "This is my sty and I'm sticking to it.",
+    "Chores done? That's squeal of approval.",
+    "I'd tell you a pig joke, but it might be a little boaring.",
+    "Bringing home the bacon is easier with a chore chart.",
+    "My favourite music? Anything with a good boar line.",
+    "Spend a little, save a lot. That's the whole hog.",
+    "You're doing swine. I mean fine. Both."
+  ];
+  var last = '';
+
+  function say() {
+    var pick = lines[Math.floor(Math.random() * lines.length)];
+    if (lines.length > 1) { while (pick === last) { pick = lines[Math.floor(Math.random() * lines.length)]; } }
+    last = pick;
+    bubble.textContent = pick;
+    stage.classList.add('talking');
+    clearTimeout(stage._hide);
+    stage._hide = setTimeout(function () { stage.classList.remove('talking'); }, 3200);
+  }
+
+  stage.addEventListener('mouseenter', say);
+  stage.addEventListener('click', say);          // taps work too
+  stage.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); say(); }
+  });
+  stage.tabIndex = 0;
+
+  // Blink at random intervals, unless the visitor prefers less motion.
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    (function blink() {
+      setTimeout(function () {
+        stage.classList.add('blinking');
+        setTimeout(function () { stage.classList.remove('blinking'); }, 140);
+        blink();
+      }, 2500 + Math.random() * 4000);
+    })();
+  }
+})();
+</script>
 </body>
 </html>

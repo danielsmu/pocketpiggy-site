@@ -95,3 +95,37 @@ footer .copy { text-align: center; color: #8b93bd; font-size: 14px; margin-top: 
   .shot-lead { grid-template-columns: 1fr; gap: 16px; }
   .shot-lead img { max-width: 260px; margin: 0 auto; }
 }
+
+/* Penny: breathing, blinking, and a line when you say hello */
+.penny-stage { position: relative; display: inline-block; cursor: pointer; outline: none; }
+.penny-stage svg.penny { width: 120px; height: 120px; display: block; overflow: visible; }
+.penny-body { transform-origin: 100px 160px; animation: breathe 3.6s ease-in-out infinite; }
+.penny-stage:hover .penny-body,
+.penny-stage:focus-visible .penny-body { animation: wiggle .5s ease-in-out; }
+.penny-stage .eyes { transform-origin: 100px 88px; transition: transform .08s ease; }
+.penny-stage.blinking .eyes { transform: scaleY(.12); }
+.penny-stage .ear-l { transform-origin: 57px 60px; }
+.penny-stage .ear-r { transform-origin: 143px 60px; }
+.penny-stage:hover .ear-l { animation: earTwitch .5s ease-in-out; }
+.penny-stage:hover .ear-r { animation: earTwitch .5s ease-in-out reverse; }
+
+.penny-bubble {
+  position: absolute; left: 50%; bottom: calc(100% + 12px); transform: translate(-50%, 6px) scale(.92);
+  width: max-content; max-width: 260px; padding: 10px 14px;
+  background: #fff; color: var(--ink); border-radius: 16px;
+  font-family: "Baloo 2", sans-serif; font-weight: 600; font-size: 15px; line-height: 1.35;
+  box-shadow: 0 8px 24px rgba(27,31,59,.18);
+  opacity: 0; pointer-events: none; transition: opacity .18s ease, transform .18s ease;
+}
+.penny-bubble::after {
+  content: ""; position: absolute; left: 50%; top: 100%; transform: translateX(-50%);
+  border: 8px solid transparent; border-top-color: #fff;
+}
+.penny-stage.talking .penny-bubble { opacity: 1; transform: translate(-50%, 0) scale(1); }
+
+@keyframes breathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.035); } }
+@keyframes wiggle { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(-5deg); } 75% { transform: rotate(5deg); } }
+@keyframes earTwitch { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(-12deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .penny-body, .penny-stage:hover .penny-body, .penny-stage .ear-l, .penny-stage .ear-r { animation: none !important; }
+}
