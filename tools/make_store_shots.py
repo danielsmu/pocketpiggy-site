@@ -1,14 +1,21 @@
 #!/usr/bin/env python3
-"""Composite raw simulator captures into App Store marketing screenshots.
+"""App Store screenshots for Pocket Piggy.
 
-One house style across every platform so the set reads as a single campaign:
-the app's own Baloo 2 display face, a cream-to-blush wash, a deep navy
-headline, the device screen floated on a soft shadow, and a muted subhead.
-Headlines lead with the benefit and carry the words a parent would search.
+Art direction, deliberately not "caption on white":
 
-Raw captures are expected in /tmp/ss/raw (see the capture steps in the
-README). Finished sets are written to the Desktop, sized exactly as App
-Store Connect requires.
+* Alternating panels. Odd shots sit on deep navy with cream type, even
+  shots on warm cream with navy type. Scrolled in the App Store the set
+  reads with a rhythm instead of a flat wall.
+* A colour wash bleeds from behind the device in that shot's accent, so
+  each panel owns a hue without leaving the palette.
+* Devices wear a real bezel and sit lower in frame, cropped at the
+  bottom edge, which is what every top-grossing app does: the screen
+  reads as a physical object continuing past the panel.
+* Headline is two lines maximum at a hard size, with a short kicker
+  above it in the accent colour. Kicker carries the keyword, headline
+  carries the benefit.
+* First two shots are the ones that must work as thumbnails, so their
+  headlines are the shortest in the set.
 """
 import os
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
@@ -17,10 +24,17 @@ FONT = "/Users/danielmilner/Coding Projects/kids-budget/Kids Budget/Resources/Fo
 OUT = "/Users/danielmilner/Desktop/PocketPiggy-AppStore"
 RAW = "/tmp/ss/raw"
 
-INK = (27, 31, 59)
-MUTED = (104, 111, 138)
+INK = (23, 27, 52)
 CREAM = (253, 249, 243)
-BLUSH = (243, 231, 240)
+CREAM_DIM = (198, 200, 216)
+INK_DIM = (116, 122, 150)
+ACCENTS = {
+    "purple": (139, 92, 246),
+    "coral": (250, 100, 100),
+    "blue": (71, 143, 237),
+    "green": (84, 199, 118),
+    "gold": (240, 176, 60),
+}
 
 
 def font(size, weight=800):
@@ -32,14 +46,19 @@ def font(size, weight=800):
     return f
 
 
-def wash(size, top=CREAM, bottom=BLUSH):
-    w, h = size
-    base = Image.new("RGB", (1, h))
-    d = ImageDraw.Draw(base)
-    for y in range(h):
-        t = y / max(1, h - 1)
-        d.point((0, y), fill=tuple(int(top[i] + (bottom[i] - top[i]) * t) for i in range(3)))
-    return base.resize(size, Image.BILINEAR)
+def panel(size, dark, accent):
+    """Background: flat base plus a soft accent bloom behind the device."""
+    W, H = size
+    base = Image.new("RGB", size, INK if dark else CREAM)
+    bloom = Image.new("RGB", size, INK if dark else CREAM)
+    d = ImageDraw.Draw(bloom)
+    r = int(W * 0.85)
+    cx, cy = W // 2, int(H * 0.60)
+    mix = 0.40 if dark else 0.30
+    col = tuple(int(base.getpixel((0, 0))[i] + (accent[i] - base.getpixel((0, 0))[i]) * mix) for i in range(3))
+    d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=col)
+    bloom = bloom.filter(ImageFilter.GaussianBlur(int(W * 0.16)))
+    return Image.blend(base, bloom, 0.85).convert("RGBA")
 
 
 def rounded(im, radius):
@@ -50,118 +69,118 @@ def rounded(im, radius):
     return out
 
 
-def shadow(canvas, box, radius, blur=60, opacity=70, offset=(0, 26)):
-    x, y, w, h = box
-    layer = Image.new("RGBA", canvas.size, (0, 0, 0, 0))
-    ImageDraw.Draw(layer).rounded_rectangle(
-        [x + offset[0], y + offset[1], x + w + offset[0], y + h + offset[1]],
-        radius=radius, fill=(27, 31, 59, opacity))
-    canvas.alpha_composite(layer.filter(ImageFilter.GaussianBlur(blur)))
-
-
 def wrap(draw, text, f, max_w):
     words, lines, cur = text.split(), [], ""
-    for word in words:
-        trial = (cur + " " + word).strip()
-        if draw.textlength(trial, font=f) <= max_w:
-            cur = trial
+    for w in words:
+        t = (cur + " " + w).strip()
+        if draw.textlength(t, font=f) <= max_w:
+            cur = t
         else:
             if cur:
                 lines.append(cur)
-            cur = word
+            cur = w
     if cur:
         lines.append(cur)
     return lines
 
 
-def centered_text(canvas, lines, f, y, color, spacing=1.12):
-    d = ImageDraw.Draw(canvas)
-    lh = int(f.size * spacing)
-    for i, line in enumerate(lines):
-        w = d.textlength(line, font=f)
-        d.text(((canvas.size[0] - w) / 2, y + i * lh), line, font=f, fill=color)
-    return y + len(lines) * lh
-
-
-def make(out_name, size, screen_path, headline, subhead,
-         head_size, sub_size, screen_scale=0.78, top_pad=0.055,
-         radius=56, landscape_screen=False):
+def make(path, size, screen, kicker, headline, accent_name="purple", dark=False,
+         head_pt=None, kick_pt=None, bezel=None, radius=None, screen_w=0.74,
+         device_top=0.30, landscape=False):
     W, H = size
-    canvas = wash(size).convert("RGBA")
+    accent = ACCENTS[accent_name]
+    canvas = panel(size, dark, accent)
     d = ImageDraw.Draw(canvas)
 
-    hf, sf = font(head_size, 800), font(sub_size, 600)
-    head_lines = wrap(d, headline, hf, W * 0.86)
-    y = int(H * top_pad)
-    y = centered_text(canvas, head_lines, hf, y, INK)
-    if subhead:
-        y += int(head_size * 0.22)
-        sub_lines = wrap(d, subhead, sf, W * 0.80)
-        y = centered_text(canvas, sub_lines, sf, y, MUTED)
+    head_pt = head_pt or int(W * 0.082)
+    kick_pt = kick_pt or int(head_pt * 0.42)
+    radius = radius if radius is not None else int(W * 0.045)
+    bezel = bezel if bezel is not None else max(6, int(W * 0.008))
 
-    shot = Image.open(screen_path).convert("RGB")
-    if landscape_screen and shot.size[1] > shot.size[0]:
+    hf, kf = font(head_pt, 800), font(kick_pt, 700)
+    head_col = CREAM if dark else INK
+    kick_col = accent if not dark else tuple(min(255, c + 45) for c in accent)
+
+    y = int(H * 0.062)
+    kw = d.textlength(kicker, font=kf)
+    d.text(((W - kw) / 2, y), kicker.upper(), font=kf, fill=kick_col)
+    y += int(kick_pt * 1.7)
+
+    for line in wrap(d, headline, hf, W * 0.88):
+        lw = d.textlength(line, font=hf)
+        d.text(((W - lw) / 2, y), line, font=hf, fill=head_col)
+        y += int(head_pt * 1.06)
+
+    shot = Image.open(f"{RAW}/{screen}").convert("RGB")
+    if landscape and shot.size[1] > shot.size[0]:
         shot = shot.rotate(-90, expand=True)
 
-    avail_h = H - y - int(H * 0.05)
-    sw = int(W * screen_scale)
+    sw = int(W * screen_w)
     sh = int(sw * shot.size[1] / shot.size[0])
-    if sh > avail_h:
-        sh = avail_h
-        sw = int(sh * shot.size[0] / shot.size[1])
     shot = shot.resize((sw, sh), Image.LANCZOS)
-
     x = (W - sw) // 2
-    yy = y + int(H * 0.035)
-    shadow(canvas, (x, yy, sw, sh), radius)
+    yy = max(y + int(H * 0.03), int(H * device_top))
+
+    # bezel + drop shadow, device bleeding off the bottom of the panel
+    sha = Image.new("RGBA", size, (0, 0, 0, 0))
+    ImageDraw.Draw(sha).rounded_rectangle(
+        [x - bezel, yy - bezel + 30, x + sw + bezel, yy + sh + bezel + 30],
+        radius=radius + bezel, fill=(0, 0, 0, 110))
+    canvas.alpha_composite(sha.filter(ImageFilter.GaussianBlur(int(W * 0.035))))
+
+    frame = Image.new("RGBA", (sw + bezel * 2, sh + bezel * 2), (0, 0, 0, 0))
+    ImageDraw.Draw(frame).rounded_rectangle(
+        [0, 0, sw + bezel * 2 - 1, sh + bezel * 2 - 1], radius=radius + bezel, fill=(16, 18, 34, 255))
+    canvas.alpha_composite(frame, (x - bezel, yy - bezel))
     canvas.alpha_composite(rounded(shot, radius), (x, yy))
 
-    os.makedirs(os.path.dirname(out_name), exist_ok=True)
-    canvas.convert("RGB").save(out_name, quality=95)
-    print("  ", os.path.basename(out_name), canvas.size)
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    canvas.convert("RGB").save(path, quality=95)
+    print("  ", os.path.basename(path))
 
 
-IPHONE = (1320, 2868)
-IPAD = (2064, 2752)
-TV = (1920, 1080)
-WATCH = (410, 502)
+IPHONE, IPAD, TV, WATCH = (1320, 2868), (2064, 2752), (1920, 1080), (410, 502)
 
-phone = [
-    ("01-board.jpg", "board.png", "Chores that actually pay",
-     "Every kid and every chore, on one screen"),
-    ("02-payday.jpg", "kiddetail.png", "Spend. Save. Give.",
-     "Split every dollar and fill a savings goal"),
-    ("03-kidmode.jpg", "kidmode.png", "Kids check off their own",
-     "A locked Kid Mode, read aloud for pre-readers"),
-    ("04-picker.jpg", "kidpicker.png", "One tap and it is theirs",
-     "Rotating chores, allowance and Pay Day"),
+PHONE = [
+    ("01-board.jpg", "board.png", "chore chart & allowance", "Chores that pay", "purple", True),
+    ("02-payday.jpg", "payday.png", "pay day", "Pay Day, every week", "gold", False),
+    ("03-buckets.jpg", "kiddetail.png", "spend · save · give", "Teach saving, not nagging", "coral", True),
+    ("04-kidmode.jpg", "kidmode.png", "kid mode", "Kids do it themselves", "blue", False),
+    ("05-rotate.jpg", "choreeditor.png", "rotating chores", "Whose turn? Settled.", "green", True),
+    ("06-money.jpg", "money.png", "one family ledger", "Know what you owe", "purple", False),
+    ("07-picker.jpg", "kidpicker.png", "built for siblings", "Every kid, their world", "coral", True),
+]
+
+IPAD_SET = [
+    ("01-board.jpg", "ipadboard.png", "the family board", "Chores and money together", "purple", True),
+    ("02-money.jpg", "ipadmoney.png", "spend · save · give", "Every balance at a glance", "coral", False),
+    ("03-chores.jpg", "ipadchores.png", "rotating chores", "Set it once, it repeats", "green", True),
+    ("04-settings.jpg", "ipadsettings.png", "pay day", "You pick the day and time", "gold", False),
 ]
 
 if __name__ == "__main__":
     print("iPhone 6.9 inch")
-    for name, src, head, sub in phone:
-        make(f"{OUT}/iPhone-6.9/{name}", IPHONE, f"{RAW}/{src}", head, sub,
-             head_size=100, sub_size=46, screen_scale=0.82, radius=58)
+    for name, src, kick, head, accent, dark in PHONE:
+        make(f"{OUT}/iPhone-6.9/{name}", IPHONE, src, kick, head, accent, dark,
+             screen_w=0.76, device_top=0.30)
 
     print("iPad 13 inch")
-    ipad = [
-        ("01-board.jpg", "ipad.png", "The family board, on iPad",
-         "Chores on the left, a kid's money on the right"),
-        ("02-payday.jpg", "ipad.png", "Pay Day, every week",
-         "Set the day. The app handles the rest"),
-    ]
-    for name, src, head, sub in ipad:
-        make(f"{OUT}/iPad-13/{name}", IPAD, f"{RAW}/{src}", head, sub,
-             head_size=118, sub_size=58, screen_scale=0.76, radius=44)
+    for name, src, kick, head, accent, dark in IPAD_SET:
+        make(f"{OUT}/iPad-13/{name}", IPAD, src, kick, head, accent, dark,
+             head_pt=132, kick_pt=52, screen_w=0.70, device_top=0.26, radius=36)
 
     print("Apple TV")
-    make(f"{OUT}/AppleTV/01-board.jpg", TV, f"{RAW}/tv.png",
-         "The chore chart on your wall", "Everyone sees the week at a glance",
-         head_size=74, sub_size=36, screen_scale=0.58, top_pad=0.07, radius=24)
+    for name, src, kick, head, accent, dark in [
+        ("01-board.jpg", "tv.png", "apple tv", "The chart on your wall", "purple", True),
+        ("02-week.jpg", "tv.png", "the whole week", "Everyone sees the week", "blue", False)]:
+        make(f"{OUT}/AppleTV/{name}", TV, src, kick, head, accent, dark,
+             head_pt=86, kick_pt=34, screen_w=0.62, device_top=0.30, radius=18, bezel=8)
 
     print("Apple Watch")
-    make(f"{OUT}/AppleWatch/01-today.jpg", WATCH, f"{RAW}/watch.png",
-         "Chores on your wrist", "",
-         head_size=30, sub_size=18, screen_scale=0.60, top_pad=0.06, radius=14)
+    for name, kick, head, accent, dark in [
+        ("01-today.jpg", "on your wrist", "Today's chores", "purple", True),
+        ("02-payday.jpg", "pay day", "Counts down with you", "gold", False)]:
+        make(f"{OUT}/AppleWatch/{name}", WATCH, "watch.png", kick, head, accent, dark,
+             head_pt=34, kick_pt=15, screen_w=0.56, device_top=0.34, radius=12, bezel=3)
 
     print("\nWritten to", OUT)
