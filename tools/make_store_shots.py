@@ -34,6 +34,10 @@ ACCENTS = {
     "blue": (71, 143, 237),
     "green": (84, 199, 118),
     "gold": (240, 176, 60),
+    # For the dark-mode panels: a cooler, deeper backdrop so the dark
+    # screenshot reads as intentional rather than like an underexposed
+    # version of the light ones.
+    "ink": (99, 110, 190),
 }
 
 
@@ -158,6 +162,12 @@ PHONE = [
     ("05-rotate.jpg", "choreeditor.png", "takes turns for you", "Whose turn? Settled.", "green", True),
     ("06-money.jpg", "money.png", "one family ledger", "Know what you owe", "purple", False),
     ("07-picker.jpg", "kidpicker.png", "siblings welcome", "Every kid, their world", "coral", True),
+    # Dark mode. Captured with `xcrun simctl ui <device> appearance dark`
+    # before re-running the marketing UI tests. Worth the panels: none of
+    # the competitors show a dark screenshot, and Kid Mode in particular
+    # looks better dark than light.
+    ("08-dark.jpg", "board-dark.png", "light or dark", "Matches your phone", "ink", True),
+    ("09-darkkid.jpg", "kidmode-dark.png", "easy on sleepy eyes", "Bedtime friendly", "ink", True),
 ]
 
 IPAD_SET = [
@@ -165,6 +175,8 @@ IPAD_SET = [
     ("02-money.jpg", "ipadmoney.png", "spend · save · give", "Every balance at a glance", "coral", False),
     ("03-chores.jpg", "ipadchores.png", "rotating chores", "Set it once, it repeats", "green", True),
     ("04-settings.jpg", "ipadsettings.png", "pay day", "You pick the day and time", "gold", False),
+    ("05-dark.jpg", "ipadboard-dark.png", "light or dark", "Matches your iPad", "ink", True),
+    ("06-darkmoney.jpg", "ipadmoney-dark.png", "spend · save · give", "Every balance, any theme", "ink", True),
 ]
 
 if __name__ == "__main__":
