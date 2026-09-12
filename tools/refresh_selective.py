@@ -10,7 +10,7 @@ for name, src, kick, head, accent, dark in IPAD_SET:
 print("Apple TV (both)")
 for name, src, kick, head, accent, dark in [
     ("01-board.jpg", "tv.png", "apple tv", "The chart on your wall", "purple", True),
-    ("02-week.jpg", "tv.png", "no more reminding", "Everyone knows the plan", "blue", False)]:
+    ("02-week.jpg", "tvkiddetail.png", "tap in on one kid", "Their own progress too", "blue", False)]:
     make(f"/Users/danielmilner/Desktop/PocketPiggy-AppStore/AppleTV/{name}", TV, src, kick, head, accent, dark,
          head_pt=104, kick_pt=38, screen_w=0.66, device_top=0.26, radius=18, bezel=8)
 
