@@ -70,7 +70,8 @@ def rounded(im, radius):
 
 
 def wrap(draw, text, f, max_w):
-    words, lines, cur = text.split(), [], ""
+    words = text.split()
+    lines, cur = [], ""
     for w in words:
         t = (cur + " " + w).strip()
         if draw.textlength(t, font=f) <= max_w:
@@ -81,6 +82,14 @@ def wrap(draw, text, f, max_w):
             cur = w
     if cur:
         lines.append(cur)
+    # An orphan (one word alone on the last line) looks like a mistake.
+    # Pull a word down from the line above to balance the pair.
+    if len(lines) == 2 and len(lines[1].split()) == 1:
+        a = lines[0].split()
+        if len(a) > 2:
+            moved = a[-1]
+            if draw.textlength(moved + " " + lines[1], font=f) <= max_w:
+                lines = [" ".join(a[:-1]), moved + " " + lines[1]]
     return lines
 
 
@@ -93,7 +102,7 @@ def make(path, size, screen, kicker, headline, accent_name="purple", dark=False,
     d = ImageDraw.Draw(canvas)
 
     head_pt = head_pt or int(W * 0.108)
-    kick_pt = kick_pt or int(head_pt * 0.34)
+    kick_pt = kick_pt or int(head_pt * 0.46)
     radius = radius if radius is not None else int(W * 0.045)
     bezel = bezel if bezel is not None else max(6, int(W * 0.008))
 
@@ -142,13 +151,13 @@ def make(path, size, screen, kicker, headline, accent_name="purple", dark=False,
 IPHONE, IPAD, TV, WATCH = (1320, 2868), (2064, 2752), (1920, 1080), (410, 502)
 
 PHONE = [
-    ("01-board.jpg", "board.png", "chore chart & allowance", "Chores that pay", "purple", True),
-    ("02-payday.jpg", "payday.png", "pay day", "Pay Day, every week", "gold", False),
-    ("03-buckets.jpg", "kiddetail.png", "spend · save · give", "Teach saving, not nagging", "coral", True),
-    ("04-kidmode.jpg", "kidmode.png", "kid mode", "Kids do it themselves", "blue", False),
-    ("05-rotate.jpg", "choreeditor.png", "rotating chores", "Whose turn? Settled.", "green", True),
+    ("01-board.jpg", "board.png", "allowance & rewards", "Chores that pay", "purple", True),
+    ("02-payday.jpg", "payday.png", "weekly payout", "Pay Day, every week", "gold", False),
+    ("03-buckets.jpg", "kiddetail.png", "spend · save · give", "Three jars, one lesson", "coral", True),
+    ("04-kidmode.jpg", "kidmode.png", "kid mode", "They do it themselves", "blue", False),
+    ("05-rotate.jpg", "choreeditor.png", "takes turns for you", "Whose turn? Settled.", "green", True),
     ("06-money.jpg", "money.png", "one family ledger", "Know what you owe", "purple", False),
-    ("07-picker.jpg", "kidpicker.png", "built for siblings", "Every kid, their world", "coral", True),
+    ("07-picker.jpg", "kidpicker.png", "siblings welcome", "Every kid, their world", "coral", True),
 ]
 
 IPAD_SET = [
@@ -172,14 +181,14 @@ if __name__ == "__main__":
     print("Apple TV")
     for name, src, kick, head, accent, dark in [
         ("01-board.jpg", "tv.png", "apple tv", "The chart on your wall", "purple", True),
-        ("02-week.jpg", "tv.png", "the whole week", "Everyone sees the week", "blue", False)]:
+        ("02-week.jpg", "tv.png", "no more reminding", "Everyone knows the plan", "blue", False)]:
         make(f"{OUT}/AppleTV/{name}", TV, src, kick, head, accent, dark,
              head_pt=104, kick_pt=38, screen_w=0.66, device_top=0.26, radius=18, bezel=8)
 
     print("Apple Watch")
     for name, src, kick, head, accent, dark in [
-        ("01-today.jpg", "watch.png", "on your wrist", "Today's chores", "purple", True),
-        ("02-kid.jpg", "watchkid.png", "one kid", "How their week is going", "coral", False)]:
+        ("01-today.jpg", "watch.png", "on your wrist", "Today at a glance", "purple", True),
+        ("02-kid.jpg", "watchkid.png", "tap any kid", "See how they are doing", "coral", False)]:
         make(f"{OUT}/AppleWatch/{name}", WATCH, src, kick, head, accent, dark,
              head_pt=42, kick_pt=17, screen_w=0.62, device_top=0.27, radius=12, bezel=3)
 
