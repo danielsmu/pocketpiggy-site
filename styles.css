@@ -89,18 +89,28 @@ footer .copy { text-align: center; color: #8b93bd; font-size: 14px; margin-top: 
 .shot-lead h3 { font-size: 26px; margin: 0 0 8px; }
 .shot-lead p { color: var(--muted); margin: 0; }
 /* A portrait iPad shot and a landscape TV shot at matched *widths* end up
-   wildly different heights side by side. Match them by height instead —
-   flex, capped height, centered — so a tall phone-shaped image and a wide
-   TV-shaped one sit level regardless of aspect ratio. */
-.shot-row { display: flex; justify-content: center; align-items: flex-end; flex-wrap: wrap; gap: 28px; margin-bottom: 28px; }
-.shot-row figure { margin: 0; }
-#screens .shot-row img { width: auto; height: 390px; max-width: 100%; }
-.shot-row figcaption { color: var(--muted); font-size: 15px; margin-top: 10px; text-align: center; }
-#screens .shot-row .narrow-figure img { height: 460px; }
+   wildly different heights side by side, so they are matched by height
+   instead. Two things this has to get right:
+   - The image must centre inside its own figure. A figure is sized by its
+     widest child, which is the caption, not the picture; without an explicit
+     centre the picture sits flush against the caption's left edge and reads
+     as broken alignment.
+   - When the pair is too wide for the viewport the images must SHRINK, not
+     wrap. Wrapping drops a 270px-wide tablet shot onto one line and a
+     700px-wide TV shot onto the next, at wildly different scales. */
+.shot-row { display: flex; justify-content: center; align-items: flex-end; gap: 28px; margin-bottom: 28px; }
+.shot-row figure { margin: 0; display: flex; flex-direction: column; align-items: center; flex: 0 1 auto; min-width: 0; }
+#screens .shot-row img { width: auto; height: auto; max-height: 390px; max-width: 100%; margin: 0 auto; }
+#screens .shot-row .narrow-figure img { max-height: 460px; }
+.shot-row figcaption { color: var(--muted); font-size: 15px; margin-top: 10px; text-align: center; max-width: 34ch; }
 @media (max-width: 640px) {
+  .shot-row { flex-direction: column; align-items: center; }
   .shot-lead { grid-template-columns: 1fr; gap: 16px; }
   .shot-lead img { max-width: 260px; margin: 0 auto; }
-  #screens .shot-row img, #screens .shot-row .narrow-figure img { height: auto; width: 100%; max-width: 280px; margin: 0 auto; }
+  /* A landscape TV shot capped to a portrait phone's width becomes an
+     unreadable strip, so cap by height and let each shape take the width
+     its own aspect ratio needs. */
+  #screens .shot-row img, #screens .shot-row .narrow-figure img { max-height: 420px; max-width: 100%; }
 }
 
 /* Penny: breathing, blinking, and a line when you say hello */
