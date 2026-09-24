@@ -26,8 +26,8 @@ no dependencies: plain HTML and one stylesheet.
 
 ## Before it goes live
 
-- [ ] **App Store links** — every button is `href="#"` with a `data-appstore`
-      marker. Replace with the real App Store URL once the app is approved.
+- [x] **App Store links** — all three `data-appstore` buttons point at
+      https://apps.apple.com/us/app/pocket-piggy-kids-chore-chart/id6757681260
 - [ ] **Support email** — currently `support@pocketpiggy.app` throughout.
       Change it, or set up that mailbox, before publishing.
 - [ ] **Screenshots** — the landing page has no screenshots yet. Drop them in
