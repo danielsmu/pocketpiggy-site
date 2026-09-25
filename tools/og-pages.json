@@ -1,0 +1,52 @@
+[
+ {
+  "slug": "home",
+  "head": "Chores that actually pay.",
+  "sub": "Kids check off chores. You approve. Money moves on Pay Day."
+ },
+ {
+  "slug": "chore-chart-app",
+  "head": "A chore chart the whole family can see",
+  "sub": "Kids check off chores. You approve. Chores take turns on their own."
+ },
+ {
+  "slug": "allowance-app",
+  "head": "Allowance that adds itself up",
+  "sub": "Spend, save and give, split automatically. Pay Day every week."
+ },
+ {
+  "slug": "apple-tv-chore-chart",
+  "head": "The family chore chart, on Apple TV",
+  "sub": "Everyone's week on the biggest screen in the house."
+ },
+ {
+  "slug": "no-subscription-chore-app",
+  "head": "Pay once. No subscription.",
+  "sub": "Free for one kid. $9.99 once for the whole family."
+ },
+ {
+  "slug": "greenlight-alternative",
+  "head": "Pocket Piggy and Greenlight, side by side",
+  "sub": "Every detail linked to its official source. Last reviewed September 2026."
+ },
+ {
+  "slug": "busykid-alternative",
+  "head": "Pocket Piggy and BusyKid, side by side",
+  "sub": "Every detail linked to its official source. Last reviewed September 2026."
+ },
+ {
+  "slug": "privacy",
+  "head": "Privacy Policy",
+  "sub": "Your family's data stays with your family."
+ },
+ {
+  "slug": "terms",
+  "head": "Terms of Use",
+  "sub": "The terms for using Pocket Piggy."
+ },
+ {
+  "slug": "refunds",
+  "head": "Refunds",
+  "sub": "How refunds and restoring purchases work."
+ }
+]
