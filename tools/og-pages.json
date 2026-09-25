@@ -48,5 +48,10 @@
   "slug": "refunds",
   "head": "Refunds",
   "sub": "How refunds and restoring purchases work."
+ },
+ {
+  "slug": "compare-chore-apps",
+  "head": "Chore app prices, compared",
+  "sub": "What each app costs and which devices it runs on."
  }
 ]

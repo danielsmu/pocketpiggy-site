@@ -8,7 +8,10 @@ const path = require('path');
 
 const ROOT = path.join(__dirname, '..');
 const OUT = path.join(ROOT, 'assets/og');
-const pages = JSON.parse(fs.readFileSync(path.join(__dirname, 'og-pages.json'), 'utf8'));
+// Pass slugs as arguments to render only those cards.
+const only = process.argv.slice(2);
+const pages = JSON.parse(fs.readFileSync(path.join(__dirname, 'og-pages.json'), 'utf8'))
+  .filter(p => !only.length || only.includes(p.slug));
 const penny = fs.readFileSync(path.join(ROOT, 'assets/penny.svg'), 'utf8');
 const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
 

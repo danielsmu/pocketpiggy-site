@@ -13,6 +13,7 @@ no dependencies: plain HTML and one stylesheet.
 | `apple-tv-chore-chart/` | The family chore board on Apple TV |
 | `no-subscription-chore-app/` | Pricing: free for one kid, $9.99 once. Never names a competitor |
 | `greenlight-alternative/`, `busykid-alternative/` | Comparison pages, built only from the verified fact sheet |
+| `compare-chore-apps/` | Price and feature chart against other App Store chore apps, built only from the fact sheet below |
 | `privacy/`, `terms/`, `refunds/` | Legal pages. `privacy.html` etc. redirect here so old links keep working |
 | `404.html` | Branded not-found page |
 | `sitemap.xml`, `robots.txt` | Update `sitemap.xml` whenever a page is added or removed |
@@ -22,7 +23,7 @@ no dependencies: plain HTML and one stylesheet.
 
 Pages use clean URLs (`folder/index.html`) and root-relative paths (`/styles.css`), so preview with a local server from the repo root (`python3 -m http.server`), not by opening files directly.
 
-Competitor names appear only on the two comparison pages and their meta tags. Keep them out of every other page, the footer link text, and anything used for App Store metadata.
+Competitor names appear only on the three comparison pages (`greenlight-alternative/`, `busykid-alternative/`, `compare-chore-apps/`) and their meta tags. Keep them out of every other page, the footer link text, and anything used for App Store metadata.
 
 ## Publishing on GitHub Pages
 
@@ -42,6 +43,7 @@ Competitor names appear only on the two comparison pages and their meta tags. Ke
       `grep -rl REPLACE_PT --include=*.html . | xargs sed -i '' 's/REPLACE_PT/<your pt>/g'`
 - [ ] **Comparison pages, every quarter** — Re-verify competitor pricing and features on comparison pages every quarter against the official source URLs; update dates.
       Update the "Last reviewed" line, every "as of" date, the cost math, and `lastmod` in `sitemap.xml`. Use only the official sources linked on each page, never third-party review sites.
+      For `compare-chore-apps/`, re-read each app's US App Store listing, specifically the **In-App Purchases** and **Compatibility** sections (plus the Homey FAQ and S'moresUp pricing page for H2 and S3), update the fact sheet below, then every table cell and the 2-year cost math. Use App Store prices only, never website prices. Never show star ratings or rating counts on the page.
 - [ ] **Support email** — currently `support@pocketpiggy.app` throughout.
       Change it, or set up that mailbox, before publishing.
 - [ ] **Screenshots** — the landing page has no screenshots yet. Drop them in
@@ -51,3 +53,38 @@ Competitor names appear only on the two comparison pages and their meta tags. Ke
 - [ ] **Privacy claims** — the policy states there are no ads, no accounts, and
       no data sent to us except anonymous analytics and any feedback text.
       Keep it true if the app changes.
+
+## Competitor fact sheet (verified September 2026)
+
+US App Store listings read September 25, 2026. These are the only competitor claims the chore app comparison page may make. Do not add, infer or round, and do not pull facts from any other source.
+
+**Pocket Piggy.** Free for one kid. One-time $9.99 Family Unlock for all kids and every family member's own devices. No subscription.
+Chart: Pricing model "Free, or $9.99 once" · Lowest yearly price "None, no subscription" · Pay-once option "Yes, $9.99" · 2-year cost "$0 for one kid, $9.99 for the family" · Apple TV "Yes" · iPad "Yes" · Rotation "Yes" · Up-for-grabs "Yes" · Read-aloud "Yes".
+
+**Chorsee.** Source: https://apps.apple.com/us/app/chorsee-chores-tracker/id1611068600
+- C1. Free download with in-app purchases: Monthly $8.99, Chorsee Yearly $39.99, Chorsee Lifetime $119.99 (the listing also shows a $89.99 yearly and a $224.99 lifetime option).
+- C2. Compatibility lists iPhone, iPad, iPod touch, Mac, and Apple Vision.
+- C3. Listing describes chores that rotate between family members or are up for grabs, photo proof, a child mode for kids' devices, widgets, and an intentional no-gamification design.
+- C4. 4.6 stars, 12K ratings. (Do not show on the site.)
+- Chart: Pricing model "Free + subscription or lifetime" · Lowest yearly price "$39.99/year" · Pay-once option "Yes, from $119.99" · 2-year cost "$79.98 (yearly plan)" · Apple TV "Not listed" · iPad "Yes" · Rotation "Yes" · Up-for-grabs "Yes" · Read-aloud "Not listed".
+
+**Chores & Allowance Bot.** Source: https://apps.apple.com/us/app/chores-allowance-bot/id629797415
+- A1. Free download with in-app purchases: Premium Monthly $9.99, Premium Semiannual $17.99, Premium Annual $39.99.
+- A2. Compatibility lists iPhone, iPad, iPod touch, Mac, and Apple Vision.
+- A3. Listing describes rotating chores, up-for-grabs chores, read-aloud for pre-readers, automatic percentage transfers into accounts and goals, and support for English plus 10 more languages.
+- A4. 4.5 stars, 11K ratings. (Do not show on the site.)
+- Chart: Pricing model "Free + subscription" · Lowest yearly price "$39.99/year" · Pay-once option "Not listed" · 2-year cost "$79.98 (annual plan)" · Apple TV "Not listed" · iPad "Yes" · Rotation "Yes" · Up-for-grabs "Yes" · Read-aloud "Yes".
+
+**Homey.** Sources: https://apps.apple.com/us/app/homey-chores-and-allowance/id1033286805 and https://www.homeyapp.net/homey-faq/
+- H1. Free download with in-app purchases including Homey Monthly $6.99 and Homey Yearly $59.99.
+- H2. Free for families using up to three accounts; subscription for more users and premium features (FAQ).
+- H3. Compatibility lists iPhone, iPad, iPod touch, Mac, and Apple Vision.
+- H4. Can transfer allowance to a bank account (US only) or mark it paid in cash.
+- Chart: Pricing model "Free tier + subscription" · Lowest yearly price "$59.99/year" · Pay-once option "Not listed" · 2-year cost "$119.98 (yearly plan)" · Apple TV "Not listed" · iPad "Yes" · Rotation "Not listed" · Up-for-grabs "Not listed" · Read-aloud "Not listed".
+
+**S'moresUp.** Sources: https://apps.apple.com/us/app/smoresup-best-chores-app/id1287367596 and https://www.smoresup.com/pricing
+- S1. App Store listing shows in-app purchases Monthly $7.99 and Yearly $79.99. Use these App Store figures; do not use website prices.
+- S2. App Store listing says "Only for iPhone"; compatibility lists iPhone, iPod touch, and Mac.
+- S3. Free Intro Pack; Premium adds advanced chore types including Rotate (website).
+- S4. Includes a collaborative family planner for appointments and events.
+- Chart: Pricing model "Free tier + subscription" · Lowest yearly price "$79.99/year" · Pay-once option "Not listed" · 2-year cost "$159.98 (yearly plan)" · Apple TV "Not listed" · iPad "Not listed" · Rotation "Yes (Premium)" · Up-for-grabs "Not listed" · Read-aloud "Not listed".

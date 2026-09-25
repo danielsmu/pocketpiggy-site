@@ -212,3 +212,27 @@ footer .social + .copy { margin-top: 22px; }
   .site-nav { justify-content: center; }
   .cta-band .wrap { border-radius: 0; }
 }
+
+/* Chore app price chart: scrolls sideways on phones with the feature
+   column pinned. Pocket Piggy's column gets a light tint; every other
+   column is styled the same, never negatively. */
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.chart-wrap { max-width: 1100px; }
+.chart-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 16px; background: var(--card); box-shadow: 0 1px 3px rgba(27,31,59,.06); }
+.chart-scroll:focus-visible { outline: 3px solid var(--purple); outline-offset: 2px; }
+.chart-table { border-collapse: separate; border-spacing: 0; width: 100%; min-width: 860px; font-size: 15px; }
+.chart-table caption { caption-side: top; text-align: left; padding: 14px 16px 4px; color: var(--muted); font-size: 14px; }
+.chart-table th, .chart-table td { padding: 12px 14px; text-align: left; vertical-align: top; border-bottom: 1px solid #eee7dc; }
+.chart-table thead th { font-family: "Baloo 2", sans-serif; font-size: 17px; line-height: 1.2; }
+.chart-table tbody tr:last-child th, .chart-table tbody tr:last-child td { border-bottom: 0; }
+.chart-table tr > th:first-child { position: sticky; left: 0; z-index: 1; background: var(--card); width: 170px; min-width: 150px; font-weight: 700; box-shadow: 1px 0 0 #eee7dc; }
+.chart-table .pp-col { background: rgba(139,92,246,.09); font-weight: 600; }
+.chart-table .cite { font-size: 11px; margin-left: 2px; }
+.chart-table .cite a { text-decoration: none; }
+.chart-note { color: var(--muted); font-size: 14px; max-width: 760px; margin: 14px auto 0; }
+.sources li { overflow-wrap: anywhere; font-size: 15px; }
+.sources li:target { background: rgba(139,92,246,.1); border-radius: 8px; }
+@media (max-width: 640px) {
+  .chart-wrap { padding: 0 12px; }
+  .chart-table tr > th:first-child { width: 120px; min-width: 120px; }
+}
