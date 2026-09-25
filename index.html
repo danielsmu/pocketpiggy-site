@@ -101,10 +101,10 @@
     <p class="eyebrow">See it in action</p>
 
     <div class="shot-lead">
-      <img src="assets/phone-board.jpg" alt="The Pocket Piggy board on iPhone, showing two children's chores and what they have earned this week" loading="lazy">
+      <video class="preview-video" id="previewVideo" src="assets/preview-iphone.mp4" poster="assets/preview-iphone-poster.jpg" muted loop playsinline controls preload="metadata" aria-label="Pocket Piggy app preview: a child checks off chores, a parent approves them, the money splits into spend, save and give, chores take turns between kids, and a savings goal is reached"></video>
       <div>
-        <h3>The board, on your phone</h3>
-        <p>Everyone's week at a glance. Tap a circle to pay a chore, approve what a kid has marked done, and watch Pay Day count down.</p>
+        <h3>See it in 30 seconds</h3>
+        <p>Kids check off their chores. You approve with a tap. The money splits into spend, save and give, chores take turns on their own, and every goal reached gets a celebration.</p>
       </div>
     </div>
 
@@ -120,6 +120,10 @@
     </div>
 
     <div class="shot-row">
+      <figure class="narrow-figure">
+        <img src="assets/phone-board.jpg" alt="The Pocket Piggy board on iPhone, showing two children's chores and what they have earned this week" loading="lazy">
+        <figcaption><strong>The board</strong>: everyone's week at a glance, with Pay Day counting down.</figcaption>
+      </figure>
       <figure class="narrow-figure">
         <img src="assets/phone-money.jpg" alt="A child's money screen showing spend, save and give balances and a savings goal" loading="lazy">
         <figcaption><strong>Spend, Save, Give</strong>: every dollar split automatically, with a goal to work toward.</figcaption>
@@ -273,6 +277,25 @@
       }, 2500 + Math.random() * 4000);
     })();
   }
+})();
+
+// Play the App Store preview (muted) while it's on screen, and pause it when
+// it scrolls away. Visitors who prefer less motion get the poster and the
+// play button instead.
+(function () {
+  var video = document.getElementById('previewVideo');
+  if (!video || !('IntersectionObserver' in window)) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        var p = video.play();
+        if (p && p.catch) p.catch(function () {});
+      } else if (video.muted) {
+        video.pause();
+      }
+    });
+  }, { threshold: 0.5 }).observe(video);
 })();
 </script>
 </body>
