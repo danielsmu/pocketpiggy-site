@@ -93,7 +93,7 @@ footer .copy { text-align: center; color: #8b93bd; font-size: 14px; margin-top: 
 .shot-lead h3 { font-size: 26px; margin: 0 0 8px; }
 .shot-lead p { color: var(--muted); margin: 0; }
 /* The App Store preview, sized like the phone screenshots it sits among. */
-.preview-video { display: block; width: 100%; max-width: 340px; aspect-ratio: 540 / 1170; height: auto; border-radius: 18px; background: #fbf7f0; box-shadow: 0 10px 30px rgba(27,31,59,.14); }
+.preview-video { display: block; width: 100%; max-width: 340px !important; aspect-ratio: 540 / 1170; height: auto; border-radius: 18px; background: #fbf7f0; box-shadow: 0 10px 30px rgba(27,31,59,.14); }
 /* A portrait iPad shot and a landscape TV shot at matched *widths* end up
    wildly different heights side by side, so they are matched by height
    instead. Two things this has to get right:
@@ -112,7 +112,11 @@ footer .copy { text-align: center; color: #8b93bd; font-size: 14px; margin-top: 
 @media (max-width: 640px) {
   .shot-row { flex-direction: column; align-items: center; }
   .shot-lead { grid-template-columns: 1fr; gap: 16px; }
-  .shot-lead img, .preview-video { max-width: 260px; margin: 0 auto; }
+  .shot-lead img { max-width: 260px; margin: 0 auto; }
+  /* !important because the tag carries an inline max-width:100% so the
+     video can never overflow the screen when this stylesheet is stale or
+     missing; these caps must still win when it loads. */
+  .preview-video { max-width: 260px !important; margin: 0 auto; }
   /* A landscape TV shot capped to a portrait phone's width becomes an
      unreadable strip, so cap by height and let each shape take the width
      its own aspect ratio needs. */
