@@ -25,6 +25,18 @@ Pages use clean URLs (`folder/index.html`) and root-relative paths (`/styles.css
 
 Competitor names appear only on the three comparison pages (`greenlight-alternative/`, `busykid-alternative/`, `compare-chore-apps/`) and their meta tags. Keep them out of every other page, the footer link text, and anything used for App Store metadata.
 
+## Analytics
+
+Every page loads `/analytics.js` in its `<head>`. It holds the official PostHog snippet, the `posthog.init` config and the click listener, so this is the one file to edit.
+
+- **Project:** "Pocket Piggy" in PostHog (project 605032), the same project the iOS and Apple TV apps send to.
+- **Host:** `https://us.i.posthog.com`, matching `Kids Budget/Services/Analytics.swift` in the app. The SDK itself loads from `us-assets.i.posthog.com`.
+- **Cookieless:** `cookieless_mode: 'always'`, so no cookies, no localStorage or sessionStorage, and no cookie banner. Session recording is off. This depends on **Cookieless server hash mode** staying enabled in Project settings > Web analytics; if it's turned off, PostHog silently drops every web event.
+- **IP addresses:** cookieless events are ingested with `$ip` removed, which is what the privacy page's website section relies on. Re-check with `properties.$ip` on recent web events if PostHog changes this behaviour.
+- **`platform = web`:** every web event carries the super properties `platform: "web"` and `site: "pocketpiggy.app"`. Filter on `platform` to separate the website from the apps.
+- **`app_store_click`:** fired by one delegated listener on any click on a link to Pocket Piggy's App Store listing (`id6757681260`). Properties: `page` (the path) and `placement` (the link's `data-placement`, else the nearest `section` id, else `nav`, `footer` or `hero`). Current placements: `hero`, `cta-band`, `pricing-free`, `pricing-family`. Links to other apps' App Store listings (the comparison page's sources) are deliberately not counted. The event is sent with `sendBeacon`, so it never delays navigation.
+- **Testing locally:** events from a local server land in the real project with `$host` set to `127.0.0.1:…`. Filter them out with `$host = pocketpiggy.app`. PostHog ignores automated browsers (headless Chrome, `navigator.webdriver`), so test in a normal browser.
+
 ## Publishing on GitHub Pages
 
 1. Create a repository and push this folder to it.
