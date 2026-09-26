@@ -16,6 +16,7 @@ no dependencies: plain HTML and one stylesheet.
 | `no-subscription-chore-app/` | Pricing: free for one kid, $9.99 once. Never names a competitor |
 | `greenlight-alternative/`, `busykid-alternative/` | Comparison pages, built only from the verified fact sheet. Bylined with published and updated dates |
 | `compare-chore-apps/` | Price and feature chart against other App Store chore apps, built only from the fact sheet below |
+| `best-chore-and-allowance-apps/` | 2026 roundup of seven chore and allowance apps (the five chart apps plus Greenlight and BusyKid): who each suits, prices with as-of dates, and Pocket Piggy's own gaps (no Android, no required photo proof, no real money). Bylined, Article and BreadcrumbList JSON-LD. Re-verify every quarter with the other comparison pages |
 | `privacy/`, `terms/`, `refunds/` | Legal pages. `privacy.html` etc. redirect here so old links keep working |
 | `404.html` | Branded not-found page |
 | `sitemap.xml`, `robots.txt` | Update `sitemap.xml` whenever a page is added or removed |
@@ -29,7 +30,7 @@ no dependencies: plain HTML and one stylesheet.
 
 Pages use clean URLs (`folder/index.html`) and root-relative paths (`/styles.css`), so preview with a local server from the repo root (`python3 -m http.server`), not by opening files directly.
 
-Competitor names appear only on the three comparison pages (`greenlight-alternative/`, `busykid-alternative/`, `compare-chore-apps/`) and their meta tags. Keep them out of every other page, the footer link text, and anything used for App Store metadata.
+Competitor names appear only on the four comparison pages (`greenlight-alternative/`, `busykid-alternative/`, `compare-chore-apps/`, `best-chore-and-allowance-apps/`) and their meta tags. Keep them out of every other page, the footer link text, and anything used for App Store metadata.
 
 ## Printable chore charts
 
