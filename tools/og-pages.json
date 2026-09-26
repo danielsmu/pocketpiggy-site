@@ -16,8 +16,8 @@
  },
  {
   "slug": "apple-tv-chore-chart",
-  "head": "The family chore chart, on Apple TV",
-  "sub": "Everyone's week on the biggest screen in the house."
+  "head": "The family chore board, on the TV you already own",
+  "sub": "Everyone's week in view, with no wall display to buy."
  },
  {
   "slug": "no-subscription-chore-app",
@@ -93,5 +93,40 @@
   "slug": "allowance-calculator",
   "head": "Allowance calculator",
   "sub": "Plan each kid's allowance and a spend, save and give split."
+ },
+ {
+  "slug": "about",
+  "head": "Built by a dad, for his own family",
+  "sub": "Pocket Piggy, and the family it was made for."
+ },
+ {
+  "slug": "guides",
+  "head": "Parent guides to chores and allowance",
+  "sub": "Practical, parent-to-parent, no nagging required."
+ },
+ {
+  "slug": "guide-why-kids-wont-do-chores-without-being-asked",
+  "head": "Why kids won't do chores without being asked",
+  "sub": "And what actually helps."
+ },
+ {
+  "slug": "guide-how-many-chores-should-a-kid-have",
+  "head": "How many chores should a kid have each day?",
+  "sub": "Starting points by age, and signs to adjust."
+ },
+ {
+  "slug": "guide-should-allowance-be-tied-to-chores",
+  "head": "Should allowance be tied to chores?",
+  "sub": "Three approaches, and how to choose."
+ },
+ {
+  "slug": "guide-stop-siblings-fighting-over-chores",
+  "head": "How to stop siblings fighting over chores",
+  "sub": "Written turns, rotation and up-for-grabs jobs."
+ },
+ {
+  "slug": "guide-why-chore-charts-stop-working",
+  "head": "Why chore charts stop working after a few weeks",
+  "sub": "And how to build one that lasts."
  }
 ]
