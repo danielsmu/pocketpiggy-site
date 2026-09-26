@@ -8,7 +8,7 @@ no dependencies: plain HTML and one stylesheet.
 | Path | Purpose |
 |---|---|
 | `index.html` | Landing page: what it does, how kids use it, pricing, FAQ (with MobileApplication, Organization and FAQPage JSON-LD). The FAQ questions are fixed; answers come only from the product facts below |
-| `about/` | About Daniel Milner and why Pocket Piggy exists, plus the full "How kids use it" section (`#how-kids-use-it`). Person, AboutPage and BreadcrumbList JSON-LD. Founder photo slot: see "Before it goes live" |
+| `about/` | About Daniel and why Pocket Piggy exists, plus the full "How kids use it" section (`#how-kids-use-it`). Person, AboutPage and BreadcrumbList JSON-LD. Founder photo slot: see "Before it goes live" |
 | `guides/` | Parent guides hub plus five guides (`guides/<slug>/`). Each has a byline linked to `/about/`, published and updated dates, Article and BreadcrumbList JSON-LD, and ends with a short app mention. No statistics, expert citations or invented stories |
 | `chore-chart-app/` | Chore chart for kids and families |
 | `allowance-app/` | Allowance tracking, spend/save/give, interest, Pay Day |
