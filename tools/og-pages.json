@@ -53,5 +53,45 @@
   "slug": "compare-chore-apps",
   "head": "Chore app prices, compared",
   "sub": "What each app costs and which devices it runs on."
+ },
+ {
+  "slug": "printable-chore-charts",
+  "head": "Free printable chore charts",
+  "sub": "Weekly charts for ages 2 to teens, in Letter and A4."
+ },
+ {
+  "slug": "printable-ages-2-3",
+  "head": "Free Printable Chore Chart for Ages 2-3",
+  "sub": "Free PDF in US Letter and A4, with chore ideas."
+ },
+ {
+  "slug": "printable-ages-4-5",
+  "head": "Free Printable Chore Chart for Ages 4-5",
+  "sub": "Free PDF in US Letter and A4, with chore ideas."
+ },
+ {
+  "slug": "printable-ages-6-8",
+  "head": "Free Printable Chore Chart for Ages 6-8",
+  "sub": "Free PDF in US Letter and A4, with chore ideas."
+ },
+ {
+  "slug": "printable-ages-9-12",
+  "head": "Free Printable Chore Chart for Ages 9-12",
+  "sub": "Free PDF in US Letter and A4, with chore ideas."
+ },
+ {
+  "slug": "printable-teens",
+  "head": "Free Printable Chore Chart for Teens",
+  "sub": "Free PDF in US Letter and A4, with chore ideas."
+ },
+ {
+  "slug": "chore-chart-maker",
+  "head": "Make your own chore chart",
+  "sub": "Your chores, your child's name, printed in a minute."
+ },
+ {
+  "slug": "allowance-calculator",
+  "head": "Allowance calculator",
+  "sub": "Plan each kid's allowance and a spend, save and give split."
  }
 ]

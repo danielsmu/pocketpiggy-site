@@ -1,0 +1,70 @@
+{
+  "_note": "Single source of age-appropriate chores. Used by generate.js (PDFs), and copied into the age pages and the chart maker. 'top' fills the pre-filled PDF and the chart maker's suggestions; 'rows' is how many chore rows the weekly chart has for this age (fewer, bigger boxes for little ones). No knives, stove, cleaning chemicals or power tools below the teen chart.",
+  "ages": [
+    {
+      "slug": "ages-2-3",
+      "label": "Ages 2-3",
+      "rows": 6,
+      "areas": {
+        "Bedroom": ["Put toys in the toy bin", "Put dirty clothes in the hamper", "Pull the blanket up on the bed", "Put books back on the shelf"],
+        "Kitchen": ["Put napkins on the table", "Carry their own plastic cup to the counter", "Wipe up small spills with a damp cloth"],
+        "Pets": ["Help scoop food into the pet's bowl", "Help give the pet fresh water"],
+        "Outdoors": ["Pick up toys in the yard", "Water plants with a small watering can"],
+        "Helping others": ["Help put away unbreakable groceries", "Match socks from the clean laundry", "Bring a diaper or wipes to a grown-up", "Throw their own trash in the bin"]
+      },
+      "top": ["Put toys in the bin", "Clothes in the hamper", "Books on the shelf", "Napkins on the table", "Help feed the pet", "Water the plants"]
+    },
+    {
+      "slug": "ages-4-5",
+      "label": "Ages 4-5",
+      "rows": 8,
+      "areas": {
+        "Bedroom": ["Make the bed (a simple version counts)", "Put toys away", "Put clean clothes in drawers", "Put dirty clothes in the hamper"],
+        "Kitchen": ["Set the table with napkins, cups and spoons", "Clear their own plate", "Wipe the table with a damp cloth", "Put away plastic dishes"],
+        "Pets": ["Feed the pet", "Fill the pet's water bowl", "Gently brush a calm pet with help"],
+        "Outdoors": ["Water the plants", "Pick up sticks in the yard", "Help carry in light shopping bags"],
+        "Helping others": ["Sort laundry into lights and darks", "Match socks", "Help unload unbreakable groceries", "Dust low shelves with a dry cloth"]
+      },
+      "top": ["Make the bed", "Put toys away", "Clothes in the hamper", "Set the table", "Clear your plate", "Feed the pet", "Water the plants", "Match socks"]
+    },
+    {
+      "slug": "ages-6-8",
+      "label": "Ages 6-8",
+      "rows": 10,
+      "areas": {
+        "Bedroom": ["Make the bed", "Tidy the bedroom floor", "Put clean laundry away", "Pack their school bag"],
+        "Kitchen": ["Set and clear the table", "Load plates and cups into the dishwasher", "Wipe the counters with a damp cloth", "Put away spoons and forks", "Make a simple no-cook snack"],
+        "Pets": ["Feed the pet and refresh the water", "Walk the dog with a grown-up"],
+        "Outdoors": ["Water the garden", "Rake leaves", "Bring in the mail"],
+        "Helping others": ["Fold towels", "Sweep with a small broom", "Dust with a dry cloth", "Empty the small trash cans", "Help a younger sibling tidy up"]
+      },
+      "top": ["Make the bed", "Tidy the bedroom floor", "Put laundry away", "Pack school bag", "Set and clear the table", "Feed the pet", "Empty small trash cans", "Fold towels"]
+    },
+    {
+      "slug": "ages-9-12",
+      "label": "Ages 9-12",
+      "rows": 10,
+      "areas": {
+        "Bedroom": ["Make the bed and tidy the room", "Put away their own laundry", "Change the bed sheets with help"],
+        "Kitchen": ["Load or unload the dishwasher (a grown-up handles sharp knives)", "Pack their own school lunch", "Wipe the counters and table", "Help with dinner prep, like washing vegetables or measuring"],
+        "Pets": ["Feed the pets and refresh the water", "Walk the dog", "Wash the pet's bowls"],
+        "Outdoors": ["Rake leaves", "Take out the trash and recycling", "Pull weeds", "Bring the bins back from the curb"],
+        "Helping others": ["Vacuum a room", "Fold and put away family laundry", "Sweep or dust the living room", "Help a younger sibling with a chore"]
+      },
+      "top": ["Make bed and tidy room", "Put laundry away", "Load or unload dishwasher", "Pack school lunch", "Feed the pets", "Trash and recycling", "Vacuum a room", "Walk the dog"]
+    },
+    {
+      "slug": "teens",
+      "label": "Teens",
+      "rows": 12,
+      "areas": {
+        "Bedroom": ["Keep their room clean", "Wash and dry their own laundry", "Change their own sheets"],
+        "Kitchen": ["Cook a simple meal once a week", "Clean up the kitchen after dinner", "Help write the grocery list", "Empty the dishwasher"],
+        "Pets": ["Look after a pet's daily needs", "Clean a cage, tank or litter box"],
+        "Outdoors": ["Mow the lawn, once a grown-up has shown them how to do it safely", "Wash the car", "Sweep the porch or shovel snow", "Take the bins to the curb"],
+        "Helping others": ["Clean a bathroom", "Vacuum and mop shared rooms", "Help a younger sibling with homework or a chore", "Run a simple errand for the family"]
+      },
+      "top": ["Keep room clean", "Do own laundry", "Cook a meal once a week", "Clean up after dinner", "Clean a bathroom", "Mow the lawn", "Bins to the curb", "Vacuum shared rooms"]
+    }
+  ]
+}

@@ -18,12 +18,31 @@ no dependencies: plain HTML and one stylesheet.
 | `404.html` | Branded not-found page |
 | `sitemap.xml`, `robots.txt` | Update `sitemap.xml` whenever a page is added or removed |
 | `assets/og/` | 1200x630 social cards, one per page. Regenerate with `NODE_PATH=$(npm root -g) node tools/make_og_images.js` after editing `tools/og-pages.json` |
+| `printable-chore-charts/` | Free printable chore charts: a hub plus one page per age (`ages-2-3/`, `ages-4-5/`, `ages-6-8/`, `ages-9-12/`, `teens/`) |
+| `chore-chart-maker/` | In-browser chart maker. Logic in `assets/js/chart-maker.js`; prints with print CSS and `window.print()` |
+| `allowance-calculator/` | Allowance calculator. Logic in `assets/js/allowance-calculator.js` |
+| `assets/printables/` | The generated chore chart PDFs (see "Printable chore charts" below) |
 | `styles.css` | Everything visual |
 | `assets/penny.svg` | Penny, the mascot |
 
 Pages use clean URLs (`folder/index.html`) and root-relative paths (`/styles.css`), so preview with a local server from the repo root (`python3 -m http.server`), not by opening files directly.
 
 Competitor names appear only on the three comparison pages (`greenlight-alternative/`, `busykid-alternative/`, `compare-chore-apps/`) and their meta tags. Keep them out of every other page, the footer link text, and anything used for App Store metadata.
+
+## Printable chore charts
+
+The PDFs in `assets/printables/` are generated, never edited by hand. Chores live in one file, `tools/printables/chores.json`: each age's chores grouped by area (shown on the age pages), its `top` chores (the pre-filled PDF and the chart maker's suggestions) and `rows` (how many rows its weekly chart has). Keep chores safe for the age: no knives, stove, cleaning chemicals or power tools below the teen chart.
+
+To regenerate all 20 PDFs (5 ages × filled/blank × US Letter/A4) after changing `chores.json` or the chart design in `tools/printables/generate.js`:
+
+```
+cd tools/printables
+npm install
+npx playwright install chromium   # first time only
+npm run build
+```
+
+The script stops with an error if any chart would spill onto a second page. The age pages and the chart maker carry a copy of the chore lists, so after changing `chores.json`, update those pages to match (the chart maker's suggestions are in the `cm-data` JSON block in `chore-chart-maker/index.html`).
 
 ## Analytics
 
@@ -35,6 +54,7 @@ Every page loads `/analytics.js` in its `<head>`. It holds the official PostHog 
 - **IP addresses:** cookieless events are ingested with `$ip` removed, which is what the privacy page's website section relies on. Re-check with `properties.$ip` on recent web events if PostHog changes this behaviour.
 - **`platform = web`:** every web event carries the super properties `platform: "web"` and `site: "pocketpiggy.app"`. Filter on `platform` to separate the website from the apps.
 - **`app_store_click`:** fired by one delegated listener on any click on a link to Pocket Piggy's App Store listing (`id6757681260`). Properties: `page` (the path) and `placement` (the link's `data-placement`, else the nearest `section` id, else `nav`, `footer` or `hero`). Current placements: `hero`, `cta-band`, `pricing-free`, `pricing-family`. Links to other apps' App Store listings (the comparison page's sources) are deliberately not counted. The event is sent with `sendBeacon`, so it never delays navigation.
+- **Free tool events:** `printable_download` (`age`, `paper`: letter or a4, `kind`: filled or blank), fired by the same delegated listener on any `a[data-printable]`; `chart_maker_print` (`age`, `layout`, `paper`, `chore_count`), fired when Print is clicked; `allowance_calculated` (`approach`, `kids`, `period`), fired once per browser session after the visitor changes an input. None of them ever include a child's name or chore text.
 - **Testing locally:** events from a local server land in the real project with `$host` set to `127.0.0.1:…`. Filter them out with `$host = pocketpiggy.app`. PostHog ignores automated browsers (headless Chrome, `navigator.webdriver`), so test in a normal browser.
 
 ## Publishing on GitHub Pages

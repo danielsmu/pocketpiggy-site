@@ -19,11 +19,18 @@ posthog.init('phc_ycKrFAMe7faTMQUdXWowKkBUotArxrvKpLKrPi9Nzw7D', {
 });
 posthog.register({ platform: 'web', site: 'pocketpiggy.app' });
 
-// One delegated listener for every link to Pocket Piggy's App Store listing.
+// One delegated listener for every link to Pocket Piggy's App Store listing,
+// and for the printable chore chart downloads.
 // Placement comes from data-placement, else the nearest section id, else
 // where the link sits on the page. sendBeacon lets the event go out while
 // the browser navigates away, so the click is never held up.
 document.addEventListener('click', function (e) {
+  // Printable chore chart PDFs: which age, paper and kind (never any names).
+  var pdf = e.target.closest && e.target.closest('a[data-printable]');
+  if (pdf) {
+    posthog.capture('printable_download', { age: pdf.getAttribute('data-age'), paper: pdf.getAttribute('data-paper'), kind: pdf.getAttribute('data-kind') }, { transport: 'sendBeacon' });
+    return;
+  }
   var link = e.target.closest && e.target.closest('a[href*="apps.apple.com"]');
   if (!link || link.href.indexOf('id6757681260') === -1) return;  // our app only, not source links to other apps
   var section = link.closest('section[id]');

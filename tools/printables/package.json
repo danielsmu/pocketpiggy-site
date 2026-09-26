@@ -1,0 +1,11 @@
+{
+  "name": "pocketpiggy-printables",
+  "private": true,
+  "description": "Generates the printable chore chart PDFs in assets/printables/.",
+  "scripts": {
+    "build": "node generate.js"
+  },
+  "devDependencies": {
+    "playwright": "^1.55.0"
+  }
+}

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Chore Chart Maker: Print Your Own | Pocket Piggy</title>
+<meta name="description" content="Make a free printable chore chart with your child&#x27;s name and your own chores. Weekly or monthly, US Letter or A4. Nothing leaves your browser.">
+<link rel="canonical" href="https://pocketpiggy.app/chore-chart-maker/">
+<meta name="apple-itunes-app" content="app-id=6757681260">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Pocket Piggy">
+<meta property="og:title" content="Free Chore Chart Maker: Print Your Own | Pocket Piggy">
+<meta property="og:description" content="Make a free printable chore chart with your child&#x27;s name and your own chores. Weekly or monthly, US Letter or A4. Nothing leaves your browser.">
+<meta property="og:url" content="https://pocketpiggy.app/chore-chart-maker/">
+<meta property="og:image" content="https://pocketpiggy.app/assets/og/chore-chart-maker.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Make your own chore chart">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@pocketpiggyapp">
+<meta name="twitter:title" content="Free Chore Chart Maker: Print Your Own | Pocket Piggy">
+<meta name="twitter:description" content="Make a free printable chore chart with your child&#x27;s name and your own chores. Weekly or monthly, US Letter or A4. Nothing leaves your browser.">
+<meta name="twitter:image" content="https://pocketpiggy.app/assets/og/chore-chart-maker.png">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://pocketpiggy.app/"}, {"@type": "ListItem", "position": 2, "name": "Chore chart maker", "item": "https://pocketpiggy.app/chore-chart-maker/"}]}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "WebApplication", "name": "Chore Chart Maker", "url": "https://pocketpiggy.app/chore-chart-maker/", "description": "Make and print a weekly or monthly chore chart with your own chores.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Pocket Piggy", "url": "https://pocketpiggy.app"}}
+</script>
+<script src="/analytics.js"></script>
+<link rel="icon" href="/assets/penny.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css?v=5">
+</head>
+<body>
+<header class="site">
+  <div class="wrap site-bar">
+    <a class="brand" href="/">
+      <img src="/assets/penny.svg" width="38" height="38" alt="">
+      Pocket Piggy
+    </a>
+    <nav class="site-nav" aria-label="Main"><a href="/">Home</a><a href="/chore-chart-app/">Chore chart</a><a href="/allowance-app/">Allowance</a><a href="/apple-tv-chore-chart/">Apple TV</a><a href="/no-subscription-chore-app/">Pricing</a><a href="/compare-chore-apps/">Compare</a><a href="/printable-chore-charts/" aria-current="page">Free Tools</a></nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">›</span> <span aria-current="page">Chore chart maker</span></nav>
+  <div class="page-hero tool-hero">
+    <img class="hero-penny" src="/assets/penny.svg" width="72" height="72" alt="">
+    <h1>Chore chart maker</h1>
+    <p class="lede">Make a chore chart with your child's name and your own chores, then print it. Everything happens in your browser: nothing you type is sent anywhere.</p>
+  </div>
+</div>
+<div class="wrap tool">
+  <form class="tool-form" id="maker" novalidate>
+    <div class="field">
+      <label for="cm-name">Child's name <span class="opt">(optional)</span></label>
+      <input id="cm-name" type="text" maxlength="30" autocomplete="off" placeholder="Leave blank to write it in by hand">
+    </div>
+    <div class="field">
+      <label for="cm-age">Age range</label>
+      <select id="cm-age"><option value="ages-2-3">Ages 2-3</option><option value="ages-4-5">Ages 4-5</option><option value="ages-6-8" selected>Ages 6-8</option><option value="ages-9-12">Ages 9-12</option><option value="teens">Teens</option></select>
+      <p class="hint">Changing the age loads suggested chores for that age.</p>
+    </div>
+    <fieldset class="field">
+      <legend>Chores <span class="opt" id="cm-count"></span></legend>
+      <ol class="chore-edit" id="cm-chores"></ol>
+      <div class="add-row">
+        <label for="cm-new" class="visually-hidden">New chore</label>
+        <input id="cm-new" type="text" maxlength="40" placeholder="Add a chore">
+        <button type="button" class="btn-secondary" id="cm-add">Add</button>
+      </div>
+      <p class="hint" id="cm-limit" hidden>That's the most that fits on one page (15).</p>
+    </fieldset>
+    <div class="field-row">
+      <fieldset class="field">
+        <legend>Layout</legend>
+        <div class="choice"><input type="radio" name="cm-layout" id="cm-weekly" value="weekly" checked><label for="cm-weekly">Weekly</label></div>
+        <div class="choice"><input type="radio" name="cm-layout" id="cm-monthly" value="monthly"><label for="cm-monthly">Monthly <span class="opt">(prints landscape)</span></label></div>
+      </fieldset>
+      <fieldset class="field">
+        <legend>Paper</legend>
+        <div class="choice"><input type="radio" name="cm-paper" id="cm-letter" value="letter" checked><label for="cm-letter">US Letter</label></div>
+        <div class="choice"><input type="radio" name="cm-paper" id="cm-a4" value="a4"><label for="cm-a4">A4</label></div>
+      </fieldset>
+    </div>
+    <button type="button" class="cta print-btn" id="cm-print">Print chart</button>
+    <p class="hint">Your last chart is remembered on this device only, so you can reprint it next week.</p>
+  </form>
+  <div class="tool-preview" aria-label="Chart preview">
+    <p class="eyebrow">Preview</p>
+    <div class="preview-scroll"><div id="cm-preview"></div></div>
+  </div>
+</div>
+<div id="print-root" aria-hidden="true"></div>
+<script type="application/json" id="cm-data">{"ages-2-3": {"label": "Ages 2-3", "top": ["Put toys in the bin", "Clothes in the hamper", "Books on the shelf", "Napkins on the table", "Help feed the pet", "Water the plants"]}, "ages-4-5": {"label": "Ages 4-5", "top": ["Make the bed", "Put toys away", "Clothes in the hamper", "Set the table", "Clear your plate", "Feed the pet", "Water the plants", "Match socks"]}, "ages-6-8": {"label": "Ages 6-8", "top": ["Make the bed", "Tidy the bedroom floor", "Put laundry away", "Pack school bag", "Set and clear the table", "Feed the pet", "Empty small trash cans", "Fold towels"]}, "ages-9-12": {"label": "Ages 9-12", "top": ["Make bed and tidy room", "Put laundry away", "Load or unload dishwasher", "Pack school lunch", "Feed the pets", "Trash and recycling", "Vacuum a room", "Walk the dog"]}, "teens": {"label": "Teens", "top": ["Keep room clean", "Do own laundry", "Cook a meal once a week", "Clean up after dinner", "Clean a bathroom", "Mow the lawn", "Bins to the curb", "Vacuum shared rooms"]}}</script>
+<script src="/assets/js/chart-maker.js"></script>
+
+<article class="wrap narrow prose">
+<h2>Getting the most from a chore chart</h2>
+<p>A chore chart works well when it's simple, visible and checked often. Start with fewer chores than you think, around three to five a day, and make sure each one has a clear finish line. "Put your shoes on the rack" is easier to get right than "keep the hallway tidy."</p>
+<p>Let your child help build the chart. Kids who choose some of their own chores, or decide the order, tend to stick with them longer. For younger kids, a quick drawing next to each chore helps them read the chart on their own.</p>
+<p>Pick a regular time to look at it together. After dinner or before bed works for most families. That's the moment to tick boxes, notice effort, and fix anything that isn't working. If a chore keeps getting skipped, it may be at the wrong time of day, or it may just be too big. Split it up or swap it.</p>
+<p>If chores earn money, add it up on the Pay Day row at the end of the week and count it out together. Seeing the ticks turn into money makes the connection real. Our <a href="/allowance-calculator/">allowance calculator</a> can help you plan the numbers, and there are <a href="/printable-chore-charts/">ready-made printable charts by age</a> if you'd rather start from one of those.</p>
+</article>
+<section class="cta-band">
+  <div class="wrap narrow">
+    <h2>Want it to track itself?</h2>
+    <p>Pocket Piggy does this on iPhone, iPad and Apple TV.</p>
+    <a class="cta" href="https://apps.apple.com/app/apple-store/id6757681260?pt=REPLACE_PT&amp;ct=site-chore-chart-maker&amp;mt=8" data-appstore data-placement="cta-band">Download on the App Store</a>
+    <p class="fineprint">Free for one kid · $9.99 once for the whole family · no subscription</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <nav class="foot-nav" aria-label="Footer">
+      <div>
+        <p class="foot-head">Pocket Piggy</p>
+        <a href="/">Home</a>
+        <a href="/chore-chart-app/">Chore chart app</a>
+        <a href="/allowance-app/">Allowance app</a>
+        <a href="/apple-tv-chore-chart/">Apple TV chore chart</a>
+        <a href="/no-subscription-chore-app/">Pay once, no subscription</a>
+      </div>
+      <div>
+        <p class="foot-head">Compare</p>
+        <a href="/greenlight-alternative/">Compared with a debit card app</a>
+        <a href="/busykid-alternative/">Compared with a spend card app</a>
+        <a href="/compare-chore-apps/">Chore app prices compared</a>
+      </div>
+      <div>
+        <p class="foot-head">Free tools</p>
+        <a href="/printable-chore-charts/">Printable chore charts</a>
+        <a href="/chore-chart-maker/">Chore chart maker</a>
+        <a href="/allowance-calculator/">Allowance calculator</a>
+      </div>
+      <div>
+        <p class="foot-head">Help</p>
+        <a href="mailto:support@pocketpiggy.app">Support</a>
+        <a href="/privacy/">Privacy Policy</a>
+        <a href="/terms/">Terms of Use</a>
+        <a href="/refunds/">Refunds</a>
+      </div>
+    </nav>
+    <div class="social">
+      <a href="https://www.instagram.com/pocketpiggyapp" aria-label="Pocket Piggy on Instagram" rel="me noopener" target="_blank"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/></svg></a>
+      <a href="https://www.facebook.com/pocketpiggy" aria-label="Pocket Piggy on Facebook" rel="me noopener" target="_blank"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.5 22v-8h2.8l.4-3.3h-3.2V8.6c0-.9.3-1.6 1.6-1.6h1.7V4.1c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.4H7.3V14h2.8v8z"/></svg></a>
+      <a href="https://x.com/pocketpiggyapp" aria-label="Pocket Piggy on X" rel="me noopener" target="_blank"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.8 3h3.1l-6.8 7.7L22 21h-6.2l-4.9-6.3L5.3 21H2.2l7.2-8.3L1.8 3h6.4l4.4 5.8zm-1.1 16.2h1.7L7.2 4.7H5.4z"/></svg></a>
+    </div>
+    <p class="copy">All product names and trademarks are the property of their respective owners. Pocket Piggy is not affiliated with or endorsed by them.</p>
+    <p class="copy">© 2026 Pocket Piggy. Not affiliated with Apple Inc.</p>
+  </div>
+</footer>
+</body>
+</html>

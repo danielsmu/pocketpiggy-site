@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Allowance Calculator for Kids | Pocket Piggy</title>
+<meta name="description" content="Plan a weekly or monthly allowance for each kid by age, a flat amount or chores, and split it into spend, save and give. Free and private.">
+<link rel="canonical" href="https://pocketpiggy.app/allowance-calculator/">
+<meta name="apple-itunes-app" content="app-id=6757681260">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Pocket Piggy">
+<meta property="og:title" content="Allowance Calculator for Kids | Pocket Piggy">
+<meta property="og:description" content="Plan a weekly or monthly allowance for each kid by age, a flat amount or chores, and split it into spend, save and give. Free and private.">
+<meta property="og:url" content="https://pocketpiggy.app/allowance-calculator/">
+<meta property="og:image" content="https://pocketpiggy.app/assets/og/allowance-calculator.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Allowance calculator">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@pocketpiggyapp">
+<meta name="twitter:title" content="Allowance Calculator for Kids | Pocket Piggy">
+<meta name="twitter:description" content="Plan a weekly or monthly allowance for each kid by age, a flat amount or chores, and split it into spend, save and give. Free and private.">
+<meta name="twitter:image" content="https://pocketpiggy.app/assets/og/allowance-calculator.png">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://pocketpiggy.app/"}, {"@type": "ListItem", "position": 2, "name": "Allowance calculator", "item": "https://pocketpiggy.app/allowance-calculator/"}]}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "WebApplication", "name": "Allowance Calculator", "url": "https://pocketpiggy.app/allowance-calculator/", "description": "Plan a weekly or monthly allowance for each kid and split it into spend, save and give.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Pocket Piggy", "url": "https://pocketpiggy.app"}}
+</script>
+<script src="/analytics.js"></script>
+<link rel="icon" href="/assets/penny.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css?v=5">
+</head>
+<body>
+<header class="site">
+  <div class="wrap site-bar">
+    <a class="brand" href="/">
+      <img src="/assets/penny.svg" width="38" height="38" alt="">
+      Pocket Piggy
+    </a>
+    <nav class="site-nav" aria-label="Main"><a href="/">Home</a><a href="/chore-chart-app/">Chore chart</a><a href="/allowance-app/">Allowance</a><a href="/apple-tv-chore-chart/">Apple TV</a><a href="/no-subscription-chore-app/">Pricing</a><a href="/compare-chore-apps/">Compare</a><a href="/printable-chore-charts/" aria-current="page">Free Tools</a></nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">›</span> <span aria-current="page">Allowance calculator</span></nav>
+  <div class="page-hero tool-hero">
+    <img class="hero-penny" src="/assets/penny.svg" width="72" height="72" alt="">
+    <h1>Allowance calculator</h1>
+    <p class="lede">Plan an allowance for each of your kids, see it weekly and monthly, and split it into spend, save and give. It updates as you type.</p>
+  </div>
+</div>
+<div class="wrap tool">
+  <form class="tool-form" id="calc" novalidate>
+    <div class="field">
+      <label for="ac-kids">Number of kids</label>
+      <select id="ac-kids"><option value="1">1</option><option value="2" selected>2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option></select>
+    </div>
+    <fieldset class="field">
+      <legend>Ages</legend>
+      <div class="ages" id="ac-ages"></div>
+    </fieldset>
+    <fieldset class="field">
+      <legend>How do you set the amount?</legend>
+      <div class="choice"><input type="radio" name="ac-approach" id="ac-per-age" value="per_age" checked><label for="ac-per-age">Per year of age</label></div>
+      <div class="choice"><input type="radio" name="ac-approach" id="ac-flat" value="flat"><label for="ac-flat">Flat amount</label></div>
+      <div class="choice"><input type="radio" name="ac-approach" id="ac-chores" value="chores"><label for="ac-chores">Earned by chores</label></div>
+    </fieldset>
+    <fieldset class="field">
+      <legend>Amounts are</legend>
+      <div class="segmented">
+        <input type="radio" name="ac-period" id="ac-weekly" value="weekly" checked><label for="ac-weekly">Weekly</label>
+        <input type="radio" name="ac-period" id="ac-monthly" value="monthly"><label for="ac-monthly">Monthly</label>
+      </div>
+    </fieldset>
+    <div class="field" data-for="per_age">
+      <label for="ac-per-year">Amount per year of age, <span class="per">per week</span></label>
+      <div class="money"><span aria-hidden="true">$</span><input id="ac-per-year" type="number" inputmode="decimal" min="0" step="0.25" value="1.00"></div>
+    </div>
+    <div class="field" data-for="flat" hidden>
+      <label for="ac-flat-amt">Amount for each kid, <span class="per">per week</span></label>
+      <div class="money"><span aria-hidden="true">$</span><input id="ac-flat-amt" type="number" inputmode="decimal" min="0" step="0.25" value="5.00"></div>
+    </div>
+    <div class="field-row" data-for="chores" hidden>
+      <div class="field">
+        <label for="ac-per-chore">Amount per chore</label>
+        <div class="money"><span aria-hidden="true">$</span><input id="ac-per-chore" type="number" inputmode="decimal" min="0" step="0.25" value="0.50"></div>
+      </div>
+      <div class="field">
+        <label for="ac-chore-count">Chores each kid does, <span class="per">per week</span></label>
+        <input id="ac-chore-count" type="number" inputmode="numeric" min="0" max="100" step="1" value="10">
+      </div>
+    </div>
+    <fieldset class="field split">
+      <legend>Spend, save and give <span class="opt">(always adds up to 100%)</span></legend>
+      <div class="split-row spend"><label for="ac-spend">Spend</label><input type="range" id="ac-spend" min="0" max="100" step="5" value="70"><output for="ac-spend" id="ac-spend-out">70%</output></div>
+      <div class="split-row save"><label for="ac-save">Save</label><input type="range" id="ac-save" min="0" max="100" step="5" value="20"><output for="ac-save" id="ac-save-out">20%</output></div>
+      <div class="split-row give"><label for="ac-give">Give</label><input type="range" id="ac-give" min="0" max="100" step="5" value="10"><output for="ac-give" id="ac-give-out">10%</output></div>
+      <div class="split-bar" aria-hidden="true"><span class="spend"></span><span class="save"></span><span class="give"></span></div>
+    </fieldset>
+  </form>
+  <div class="tool-results" aria-live="polite">
+    <p class="eyebrow">Results</p>
+    <div id="ac-results"></div>
+    <p class="hint">This is a planning tool, not financial advice.</p>
+  </div>
+</div>
+<script src="/assets/js/allowance-calculator.js"></script>
+
+<article class="wrap narrow prose">
+<h2>Common ways families set allowance</h2>
+<p>There's no single right amount. What matters most is that the number works for your budget, feels fair to your kids, and stays consistent. Here are a few ways families approach it.</p>
+<h3>Per year of age</h3>
+<p>A common starting point is a set amount for each year of a child's age, paid weekly. At $1 per year of age, an eight-year-old gets $8 a week and a five-year-old gets $5. It's easy to explain, it grows as your kids do, and siblings can see why the amounts differ. Treat it as a place to start, not a rule. Plenty of families use half that, or a different amount, depending on what the allowance is expected to cover.</p>
+<h3>A flat amount</h3>
+<p>Some families give every kid the same amount. That's simple, and it can work well when kids are close in age. As they grow apart, older kids usually take on more expenses, like lunches out or their own phone top-ups, so many families move to an age-based amount over time.</p>
+<h3>Earned by chores</h3>
+<p>Others pay per chore: an amount for each job done, added up at the end of the week. This makes the link between work and money very clear, and it rewards extra effort. It does take more tracking, which is where a chore chart comes in handy.</p>
+
+<h2>Should allowance be tied to chores?</h2>
+<p>Families feel differently about this, and both approaches can work. Some keep everyday chores separate from money, on the idea that helping at home is part of being in a family, and give allowance as a way to learn about money. Others pay for chores so kids see money as something earned. A common middle ground is a small base allowance for learning to manage money, plus extra for bigger or optional jobs. Whatever you choose, explain it clearly and stick with it.</p>
+
+<h2>Why split into spend, save and give</h2>
+<p>Splitting every payment into three parts turns allowance into a lesson about choices. The spend part is theirs to enjoy, and making a few poor purchases with small amounts is part of learning. The save part teaches patience: picking a goal and watching it grow. The give part helps kids think about other people, whether that's a charity, a friend's birthday or a cause they care about.</p>
+<p>The split itself is up to you. 70% spend, 20% save and 10% give is simply a starting point that's easy to follow. Some families save more as kids get older, or let kids choose their own split once they've had some practice.</p>
+
+<h2>Tips for making it stick</h2>
+<ul>
+  <li><strong>Pay on the same day each week.</strong> A regular Pay Day builds trust and makes planning easier.</li>
+  <li><strong>Agree what allowance covers.</strong> Treats, toys, or later on, things like clothes or outings.</li>
+  <li><strong>Let them make mistakes.</strong> Running out before Pay Day is a lesson that sticks.</li>
+  <li><strong>Review it on birthdays.</strong> A yearly check-in is a natural time to raise the amount or the responsibilities.</li>
+</ul>
+<p>Planning chores too? Try the <a href="/chore-chart-maker/">chore chart maker</a> or grab a <a href="/printable-chore-charts/">free printable chore chart</a>.</p>
+</article>
+<section class="cta-band">
+  <div class="wrap narrow">
+    <h2>Let Pay Day do the maths</h2>
+    <p>Pocket Piggy splits every payment into spend, save and give automatically on Pay Day, on iPhone, iPad and Apple TV.</p>
+    <a class="cta" href="https://apps.apple.com/app/apple-store/id6757681260?pt=REPLACE_PT&amp;ct=site-allowance-calculator&amp;mt=8" data-appstore data-placement="cta-band">Download on the App Store</a>
+    <p class="fineprint">Free for one kid · $9.99 once for the whole family · no subscription</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <nav class="foot-nav" aria-label="Footer">
+      <div>
+        <p class="foot-head">Pocket Piggy</p>
+        <a href="/">Home</a>
+        <a href="/chore-chart-app/">Chore chart app</a>
+        <a href="/allowance-app/">Allowance app</a>
+        <a href="/apple-tv-chore-chart/">Apple TV chore chart</a>
+        <a href="/no-subscription-chore-app/">Pay once, no subscription</a>
+      </div>
+      <div>
+        <p class="foot-head">Compare</p>
+        <a href="/greenlight-alternative/">Compared with a debit card app</a>
+        <a href="/busykid-alternative/">Compared with a spend card app</a>
+        <a href="/compare-chore-apps/">Chore app prices compared</a>
+      </div>
+      <div>
+        <p class="foot-head">Free tools</p>
+        <a href="/printable-chore-charts/">Printable chore charts</a>
+        <a href="/chore-chart-maker/">Chore chart maker</a>
+        <a href="/allowance-calculator/">Allowance calculator</a>
+      </div>
+      <div>
+        <p class="foot-head">Help</p>
+        <a href="mailto:support@pocketpiggy.app">Support</a>
+        <a href="/privacy/">Privacy Policy</a>
+        <a href="/terms/">Terms of Use</a>
+        <a href="/refunds/">Refunds</a>
+      </div>
+    </nav>
+    <div class="social">
+      <a href="https://www.instagram.com/pocketpiggyapp" aria-label="Pocket Piggy on Instagram" rel="me noopener" target="_blank"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/></svg></a>
+      <a href="https://www.facebook.com/pocketpiggy" aria-label="Pocket Piggy on Facebook" rel="me noopener" target="_blank"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.5 22v-8h2.8l.4-3.3h-3.2V8.6c0-.9.3-1.6 1.6-1.6h1.7V4.1c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.4H7.3V14h2.8v8z"/></svg></a>
+      <a href="https://x.com/pocketpiggyapp" aria-label="Pocket Piggy on X" rel="me noopener" target="_blank"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.8 3h3.1l-6.8 7.7L22 21h-6.2l-4.9-6.3L5.3 21H2.2l7.2-8.3L1.8 3h6.4l4.4 5.8zm-1.1 16.2h1.7L7.2 4.7H5.4z"/></svg></a>
+    </div>
+    <p class="copy">All product names and trademarks are the property of their respective owners. Pocket Piggy is not affiliated with or endorsed by them.</p>
+    <p class="copy">© 2026 Pocket Piggy. Not affiliated with Apple Inc.</p>
+  </div>
+</footer>
+</body>
+</html>
