@@ -8,7 +8,7 @@ no dependencies: plain HTML and one stylesheet.
 | Path | Purpose |
 |---|---|
 | `index.html` | Landing page: what it does, how kids use it, pricing, FAQ (with MobileApplication, Organization and FAQPage JSON-LD). The FAQ questions are fixed; answers come only from the product facts below |
-| `about/` | About Daniel and why Pocket Piggy exists, plus the full "How kids use it" section (`#how-kids-use-it`). Person, AboutPage and BreadcrumbList JSON-LD. Founder photo slot: see "Before it goes live" |
+| `about/` | About the maker and why Pocket Piggy exists, plus the full "How kids use it" section (`#how-kids-use-it`). Person, AboutPage and BreadcrumbList JSON-LD. Founder photo slot: see "Before it goes live" |
 | `guides/` | Parent guides hub plus five guides (`guides/<slug>/`). Each has a byline linked to `/about/`, published and updated dates, Article and BreadcrumbList JSON-LD, and ends with a short app mention. No statistics, expert citations or invented stories |
 | `chore-chart-app/` | Chore chart for kids and families |
 | `allowance-app/` | Allowance tracking, spend/save/give, interest, Pay Day |
@@ -87,13 +87,6 @@ Every page loads `/analytics.js` in its `<head>`. It holds the official PostHog 
 - [ ] **Privacy claims** — the policy states there are no ads, no accounts, and
       no data sent to us except anonymous analytics and any feedback text.
       Keep it true if the app changes. See F31 to F33 in the product facts.
-- [ ] **Founder photo** — `/about/` shows Penny as a placeholder. Add a square
-      photo of Daniel at `assets/about/daniel.jpg`, swap the `<img>` in
-      `about/index.html` (the HTML comment there says what to change), and add
-      `"image"` to the Person JSON-LD.
-- [ ] **Real family examples** — each guide has one
-      `<!-- DANIEL: optional real family example here -->` comment where a real
-      anecdote would help. Replace or delete them; never invent one.
 - [ ] **Kid's own device** — the app's "This is a kid's device" flow is left off
       the site because the 6-digit household code can't be entered on `main`
       (`PINEntryView.swift:90` caps input at 4 digits). Once fixed and checked,
@@ -196,3 +189,5 @@ Chart: Pricing model "Free, or $9.99 once" · Lowest yearly price "None, no subs
 - S3. Free Intro Pack; Premium adds advanced chore types including Rotate (website).
 - S4. Includes a collaborative family planner for appointments and events.
 - Chart: Pricing model "Free tier + subscription" · Lowest yearly price "$79.99/year" · Pay-once option "Not listed" · 2-year cost "$159.98 (yearly plan)" · Apple TV "Not listed" · iPad "Not listed" · Rotation "Yes (Premium)" · Up-for-grabs "Not listed" · Read-aloud "Not listed". · Kids need an account "Not listed" · Home screen widgets "Not listed".
+
+**Owner's name stays off the site.** No first or last name anywhere in pages, meta, alt text, HTML comments or JSON-LD. Bylines read "the maker of Pocket Piggy"; author schema is the Pocket Piggy Organization.
