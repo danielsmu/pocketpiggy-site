@@ -71,10 +71,10 @@ Every page loads `/analytics.js` in its `<head>`. It holds the official PostHog 
 
 ## Before it goes live
 
-- [ ] **App Store provider token** — every `data-appstore` link uses
-      `https://apps.apple.com/app/apple-store/id6757681260?pt=REPLACE_PT&ct=site-<pageslug>&mt=8`.
-      Replace `REPLACE_PT` with your provider ID (App Store Connect → App Analytics → Campaigns → generate a link, and copy the `pt=` value), across the whole site:
-      `grep -rl REPLACE_PT --include=*.html . | xargs sed -i '' 's/REPLACE_PT/<your pt>/g'`
+- [x] **App Store provider token** — done (Sept 26, 2026). Every `data-appstore` link uses
+      `https://apps.apple.com/app/apple-store/id6757681260?pt=128405385&ct=site-<pageslug>&mt=8`.
+      `128405385` is the provider token from App Store Connect → Apps → Pocket Piggy → Analytics → Campaigns → Generate a Campaign Link.
+      New pages must use the same `pt` and their own `ct=site-<pageslug>`; installs then show per page under Analytics → Campaigns.
 - [ ] **Comparison pages, every quarter** — Re-verify competitor pricing and features on comparison pages every quarter against the official source URLs; update dates.
       Update the "Last reviewed" line, every "as of" date, the cost math, and `lastmod` in `sitemap.xml`. Use only the official sources linked on each page, never third-party review sites.
       For `compare-chore-apps/`, re-read each app's US App Store listing, specifically the **In-App Purchases** and **Compatibility** sections (plus the Homey FAQ and S'moresUp pricing page for H2 and S3), update the fact sheet below, then every table cell and the 2-year cost math. Use App Store prices only, never website prices. Never show star ratings or rating counts on the page.
