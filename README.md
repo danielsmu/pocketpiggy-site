@@ -192,3 +192,7 @@ Chart: Pricing model "Free, or $9.99 once" · Lowest yearly price "None, no subs
 - Chart: Pricing model "Free tier + subscription" · Lowest yearly price "$79.99/year" · Pay-once option "Not listed" · 2-year cost "$159.98 (yearly plan)" · Apple TV "Not listed" · iPad "Not listed" · Rotation "Yes (Premium)" · Up-for-grabs "Not listed" · Read-aloud "Not listed". · Kids need an account "Not listed" · Home screen widgets "Not listed".
 
 **Owner's name stays off the site.** No first or last name anywhere in pages, meta, alt text, HTML comments or JSON-LD. Bylines read "the maker of Pocket Piggy"; author schema is the Pocket Piggy Organization.
+
+## Excluding our own visits from analytics
+
+Open any page with `?pp_internal=1` once on each of your own browsers (Mac Chrome, iPhone Safari, iPad) to stop that browser sending analytics. `?pp_internal=0` turns it back on. Automated browsers (`navigator.webdriver`) are always excluded. See the top of `analytics.js`.
