@@ -173,11 +173,11 @@ Chart: Pricing model "Free, or $9.99 once" · Lowest yearly price "None, no subs
 - Chart: Pricing model "Free + subscription or lifetime" · Lowest yearly price "$39.99/year" · Pay-once option "Yes, from $119.99" · 2-year cost "$79.98 (yearly plan)" · Apple TV "Not listed" · iPad "Yes" · Rotation "Yes" · Up-for-grabs "Yes" · Read-aloud "Not listed" · Kids need an account "Not listed" · Home screen widgets "Yes" (C3).
 
 **Chores & Allowance Bot.** Source: https://apps.apple.com/us/app/chores-allowance-bot/id629797415
-- A1. Free download with in-app purchases: Premium Monthly $9.99, Premium Semiannual $17.99, Premium Annual $39.99.
+- A1. Free download with in-app purchases: Premium Monthly $9.99, Premium Semiannual $17.99, Premium Annual $24.99 (annual was $39.99 on Sept 25; rechecked Oct 3, 2026).
 - A2. Compatibility lists iPhone, iPad, iPod touch, Mac, and Apple Vision.
 - A3. Listing describes rotating chores, up-for-grabs chores, read-aloud for pre-readers, automatic percentage transfers into accounts and goals, and support for English plus 10 more languages.
 - A4. 4.5 stars, 11K ratings. (Do not show on the site.)
-- Chart: Pricing model "Free + subscription" · Lowest yearly price "$39.99/year" · Pay-once option "Not listed" · 2-year cost "$79.98 (annual plan)" · Apple TV "Not listed" · iPad "Yes" · Rotation "Yes" · Up-for-grabs "Yes" · Read-aloud "Yes". · Kids need an account "Not listed" · Home screen widgets "Not listed".
+- Chart: Pricing model "Free + subscription" · Lowest yearly price "$24.99/year" · Pay-once option "Not listed" · 2-year cost "$49.98 (annual plan)" · Apple TV "Not listed" · iPad "Yes" · Rotation "Yes" · Up-for-grabs "Yes" · Read-aloud "Yes". · Kids need an account "Not listed" · Home screen widgets "Not listed".
 
 **Homey.** Sources: https://apps.apple.com/us/app/homey-chores-and-allowance/id1033286805 and https://www.homeyapp.net/homey-faq/
 - H1. Free download with in-app purchases including Homey Monthly $6.99 and Homey Yearly $59.99.
