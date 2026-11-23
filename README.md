@@ -157,9 +157,9 @@ Read from the app repo (`kids-budget`) on `main` at commit `616ee4a`. Every prod
 - Mac support.
 - Interactive widgets, per-kid PINs, per-kid read-aloud settings, picture icons on chores, daily or per-completion rotation.
 
-## Competitor fact sheet (verified September 2026)
+## Competitor fact sheet (verified November 2026)
 
-US App Store listings read September 25, 2026. These are the only competitor claims the chore app comparison page may make. Do not add, infer or round, and do not pull facts from any other source.
+US App Store listings read November 23, 2026. These are the only competitor claims the chore app comparison page may make. Do not add, infer or round, and do not pull facts from any other source.
 
 **Pocket Piggy.** Free for one kid. One-time $9.99 Family Unlock for more kids and for inviting other grown-ups on their own Apple Accounts (F18, F19 above). No subscription.
 Chart: Pricing model "Free, or $9.99 once" · Lowest yearly price "None, no subscription" · Pay-once option "Yes, $9.99" · 2-year cost "$0 for one kid, $9.99 for the family" · Apple TV "Yes" · iPad "Yes" · Rotation "Yes" · Up-for-grabs "Yes" · Read-aloud "Yes" · Kids need an account "No" (F1) · Home screen widgets "Yes" (F26, F27).
@@ -172,11 +172,11 @@ Chart: Pricing model "Free, or $9.99 once" · Lowest yearly price "None, no subs
 - Chart: Pricing model "Free + subscription or lifetime" · Lowest yearly price "$39.99/year" · Pay-once option "Yes, from $119.99" · 2-year cost "$79.98 (yearly plan)" · Apple TV "Not listed" · iPad "Yes" · Rotation "Yes" · Up-for-grabs "Yes" · Read-aloud "Not listed" · Kids need an account "Not listed" · Home screen widgets "Yes" (C3).
 
 **Chores & Allowance Bot.** Source: https://apps.apple.com/us/app/chores-allowance-bot/id629797415
-- A1. Free download with in-app purchases: Premium Monthly $9.99, Premium Semiannual $17.99, Premium Annual $39.99.
-- A2. Compatibility lists iPhone, iPad, iPod touch, Mac, and Apple Vision.
+- A1. Free download with in-app purchases: Premium Monthly $6.99, Premium Semiannual $24.99, Premium Annual $34.99, Lifetime Premium $89.99.
+- A2. Compatibility lists iPhone, iPad, Mac, Apple Vision, and Apple Watch.
 - A3. Listing describes rotating chores, up-for-grabs chores, read-aloud for pre-readers, automatic percentage transfers into accounts and goals, and support for English plus 10 more languages.
 - A4. 4.5 stars, 11K ratings. (Do not show on the site.)
-- Chart: Pricing model "Free + subscription" · Lowest yearly price "$39.99/year" · Pay-once option "Not listed" · 2-year cost "$79.98 (annual plan)" · Apple TV "Not listed" · iPad "Yes" · Rotation "Yes" · Up-for-grabs "Yes" · Read-aloud "Yes". · Kids need an account "Not listed" · Home screen widgets "Not listed".
+- Chart: Pricing model "Free + subscription or lifetime" · Lowest yearly price "$34.99/year" · Pay-once option "Yes, $89.99" · 2-year cost "$69.98 (annual plan)" · Apple TV "Not listed" · iPad "Yes" · Rotation "Yes" · Up-for-grabs "Yes" · Read-aloud "Yes". · Kids need an account "Not listed" · Home screen widgets "Not listed".
 
 **Homey.** Sources: https://apps.apple.com/us/app/homey-chores-and-allowance/id1033286805 and https://www.homeyapp.net/homey-faq/
 - H1. Free download with in-app purchases including Homey Monthly $6.99 and Homey Yearly $59.99.
@@ -186,11 +186,11 @@ Chart: Pricing model "Free, or $9.99 once" · Lowest yearly price "None, no subs
 - Chart: Pricing model "Free tier + subscription" · Lowest yearly price "$59.99/year" · Pay-once option "Not listed" · 2-year cost "$119.98 (yearly plan)" · Apple TV "Not listed" · iPad "Yes" · Rotation "Not listed" · Up-for-grabs "Not listed" · Read-aloud "Not listed". · Kids need an account "Not listed" · Home screen widgets "Not listed".
 
 **S'moresUp.** Sources: https://apps.apple.com/us/app/smoresup-best-chores-app/id1287367596 and https://www.smoresup.com/pricing
-- S1. App Store listing shows in-app purchases Monthly $7.99 and Yearly $79.99. Use these App Store figures; do not use website prices.
+- S1. App Store listing shows in-app purchases Monthly $9.99 and Yearly $99.99. Use these App Store figures; do not use website prices.
 - S2. App Store listing says "Only for iPhone"; compatibility lists iPhone, iPod touch, and Mac.
 - S3. Free Intro Pack; Premium adds advanced chore types including Rotate (website).
 - S4. Includes a collaborative family planner for appointments and events.
-- Chart: Pricing model "Free tier + subscription" · Lowest yearly price "$79.99/year" · Pay-once option "Not listed" · 2-year cost "$159.98 (yearly plan)" · Apple TV "Not listed" · iPad "Not listed" · Rotation "Yes (Premium)" · Up-for-grabs "Not listed" · Read-aloud "Not listed". · Kids need an account "Not listed" · Home screen widgets "Not listed".
+- Chart: Pricing model "Free tier + subscription" · Lowest yearly price "$99.99/year" · Pay-once option "Not listed" · 2-year cost "$199.98 (yearly plan)" · Apple TV "Not listed" · iPad "Not listed" · Rotation "Yes (Premium)" · Up-for-grabs "Not listed" · Read-aloud "Not listed". · Kids need an account "Not listed" · Home screen widgets "Not listed".
 
 **Owner's name stays off the site.** No first or last name anywhere in pages, meta, alt text, HTML comments or JSON-LD. Bylines read "the maker of Pocket Piggy"; author schema is the Pocket Piggy Organization.
 
